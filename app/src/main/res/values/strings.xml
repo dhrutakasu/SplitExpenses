@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SplitExpense</string>
+    <string name="create">Create</string>
+    <string name="group">Group</string>
+    <string name="create_group">Create Group</string>
+    <string name="group_name">Group Name</string>
+    <string name="add_members">Add Members</string>
+    <string name="currency">Currency</string>
+    <string name="add_a_member">Add a member</string>
+    <string name="members">Members</string>
+    <string name="manage_group_members">Manage group members</string>
+    <string name="group_members">Group Members</string>
+    <string name="imports">Import</string>
+    <string name="join_an_existing_group">Join an existing group</string>
+    <string name="group_id">Group ID</string>
+    <string name="group_id_ex_abcd9876">Group ID (Ex. ABCD9876 )</string>
+    <string name="password_if_you_have">Password (If you have)</string>
+    <string name="password">Password</string>
+    <string name="the_group_id_is_available_in_the_share_screen_on_the_other_device">The group ID is available in the “Share” screen on the other device</string>
+</resources>
