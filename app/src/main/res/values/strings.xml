@@ -17,4 +17,12 @@
     <string name="password_if_you_have">Password (If you have)</string>
     <string name="password">Password</string>
     <string name="the_group_id_is_available_in_the_share_screen_on_the_other_device">The group ID is available in the “Share” screen on the other device</string>
+    <string name="my_dashboard">My Dashboard</string>
+    <string name="my_list_folders">My List &amp; Folders</string>
+    <string name="last_added">Last added on Feb 21,2024</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="expense_paid_by">Expense paid by</string>
+    <string name="amount_paid_by">Amount paid for</string>
+    <string name="comment">Comment</string>
+    <string name="add_a_comment">Add a comment...</string>
 </resources>

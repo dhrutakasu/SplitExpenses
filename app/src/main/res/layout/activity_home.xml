@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_color_light"
     tools:context=".HomeActivity">
 
     <FrameLayout
         android:id="@+id/ConsBottomMenu"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_55sdp"
-        android:background="@color/white"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/bg"
+        android:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -30,7 +34,21 @@
             app:cnb_menuResource="@menu/bottom_menu"
             app:cnb_orientationMode="horizontal"
             app:cnb_radius="@dimen/_20sdp"
+            app:cnb_textAppearance="@style/TextFamily"
             app:cnb_textColor="@color/white"
-            app:cnb_unselectedColor="@color/icon_color" />
+            app:cnb_unselectedColor="@color/main_color" />
     </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConsBlurView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:background="@drawable/ic_bottom_view"
+        app:layout_constraintBottom_toTopOf="@id/ConsBottomMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

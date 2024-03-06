@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/Menu_Home"
-        android:icon="@drawable/ic_home_unpress"
+        android:icon="@drawable/ic_home"
         android:title="Home"
         android:checked="true"
         app:cnb_backgroundColor="@color/main_color"
@@ -12,7 +12,7 @@
         app:cnb_iconColor="@color/white" />
     <item
         android:id="@+id/Menu_Calculators"
-        android:icon="@drawable/ic_calculator"
+        android:icon="@drawable/ic_add_file"
         android:title="Calculators"
         app:cnb_backgroundColor="@color/main_color"
         app:cnb_iconTintMode="src_in"
@@ -20,7 +20,7 @@
         app:cnb_iconColor="@color/white" />
     <item
         android:id="@+id/Menu_Funds"
-        android:icon="@drawable/ic_money"
+        android:icon="@drawable/ic_expense"
         android:title="Schemes"
         app:cnb_backgroundColor="@color/main_color"
         app:cnb_iconTintMode="src_in"

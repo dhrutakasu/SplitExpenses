@@ -54,4 +54,7 @@ dependencies {
 
     //todo bottom navigation dependency
     implementation("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
+
+    //todo blurview dependency
+    implementation("jp.wasabeef:blurry:4.0.1")
 }
