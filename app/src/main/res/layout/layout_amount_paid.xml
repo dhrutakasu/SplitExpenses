@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/_120sdp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:layout_marginHorizontal="@dimen/_5sdp"
+    android:background="@drawable/bg_radius_light"
+    android:backgroundTint="@color/main_color_tab"
+    android:paddingVertical="@dimen/_12sdp">
+
+    <ImageView
+        android:id="@+id/IvLineCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:src="@drawable/ic_line_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TvPersonName" />
+
+    <TextView
+        android:id="@+id/TvPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:fontFamily="@font/main_bold"
+        android:gravity="center"
+        android:text="@string/dummy"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TvExpensePaidAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:backgroundTint="@color/main_color_tab"
+        android:drawableStart="@drawable/ic_profile_logo"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/main_bold"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:text="@string/dummy_rupee"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/IvLineCenter" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

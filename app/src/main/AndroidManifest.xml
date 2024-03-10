@@ -10,25 +10,28 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SplitExpense"
+        android:theme="@style/Base.Theme.SplitExpense"
         tools:targetApi="31">
         <activity
-            android:name=".HomeActivity"
+            android:name=".ui.Activities.MemberListActivity"
             android:exported="false" />
         <activity
-            android:name=".ImportMemberActivity"
+            android:name=".ui.Activities.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".AddMemberActivity"
+            android:name=".ui.Activities.ImportMemberActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateGroupActivity"
+            android:name=".ui.Activities.AddMemberActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectLanguageActivity"
+            android:name=".ui.Activities.CreateGroupActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.Activities.SelectLanguageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

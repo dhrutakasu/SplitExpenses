@@ -1,10 +1,13 @@
-package com.example.splitexpense
+package com.example.splitexpense.ui.Activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.splitexpense.R
 import com.example.splitexpense.databinding.ActivityCreateGroupBinding
-import com.example.splitexpense.databinding.ActivityMainBinding
+import com.example.splitexpense.ui.Adapters.MemberAddAdapter
 
 class CreateGroupActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreateGroupBinding
@@ -15,7 +18,7 @@ class CreateGroupActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initViews()
-        initListerens()
+        initListeners()
         initActions()
     }
 
@@ -23,12 +26,17 @@ class CreateGroupActivity : AppCompatActivity() {
 
     }
 
-    private fun initListerens() {
-
+    private fun initListeners() {
+        binding.LayoutTool.TvRightView.setOnClickListener {
+            startActivity(Intent(this@CreateGroupActivity, HomeActivity::class.java))
+        }
     }
 
     private fun initActions() {
         binding.LayoutTool.TvSubTitle.visibility = View.GONE
         binding.LayoutTool.TvGroup.text = getString(R.string.create_group)
+
+        binding.RvMembers.layoutManager = LinearLayoutManager(this@CreateGroupActivity)
+        binding.RvMembers.adapter = MemberAddAdapter(this@CreateGroupActivity)
     }
 }

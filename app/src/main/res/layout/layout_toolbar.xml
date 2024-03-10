@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_55sdp"
-    android:paddingTop="@dimen/_16sdp">
+    android:paddingTop="@dimen/_6sdp">
 
     <TextView
         android:id="@+id/TvGroup"
@@ -61,6 +61,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="@dimen/_16sdp"
+        android:padding="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

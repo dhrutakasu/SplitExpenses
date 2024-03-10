@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/_5sdp"
+    android:padding="@dimen/_12sdp"
+    android:background="@drawable/bg_radius_light">
+
+    <TextView
+        android:id="@+id/TvPersonName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/main_medium"
+        android:gravity="center"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:text="@string/person_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TvPersonName">
+
+        <TextView
+            android:id="@+id/TvFirstRupeeBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:text="@string/_1600_nbalance"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintEnd_toStartOf="@+id/IvLineThird"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/IvLineSecond"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TvFirstRupeeGot"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:text="@string/_2000_ngot"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintEnd_toStartOf="@+id/IvLineSecond"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/IvLineFirst"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TvFirstRupeeGive"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:text="@string/_6000_ngive"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TvFirstRupeeGBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:text="@string/_400_ng_bal"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/IvLineFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_line_center"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:layout_constraintEnd_toStartOf="@+id/TvFirstRupeeGot"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/TvFirstRupeeGive"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/IvLineSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_line_center"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:layout_constraintEnd_toStartOf="@+id/TvFirstRupeeBalance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/TvFirstRupeeGot"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/IvLineThird"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_line_center"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/TvFirstRupeeGBalance"
+            app:layout_constraintStart_toEndOf="@id/TvFirstRupeeBalance"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

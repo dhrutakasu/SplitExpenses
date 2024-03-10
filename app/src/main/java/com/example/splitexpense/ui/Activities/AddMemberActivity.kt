@@ -1,10 +1,10 @@
-package com.example.splitexpense
+package com.example.splitexpense.ui.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.splitexpense.R
 import com.example.splitexpense.databinding.ActivityAddMemberBinding
-import com.example.splitexpense.databinding.ActivityMainBinding
 
 class AddMemberActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddMemberBinding
@@ -15,7 +15,7 @@ class AddMemberActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initViews()
-        initListerens()
+        initListeners()
         initActions()
     }
 
@@ -23,7 +23,7 @@ class AddMemberActivity : AppCompatActivity() {
 
     }
 
-    private fun initListerens() {
+    private fun initListeners() {
 
     }
 
