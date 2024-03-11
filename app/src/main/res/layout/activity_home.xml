@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConsMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_color_light"
@@ -11,10 +13,11 @@
         android:id="@+id/ConsBottomMenu"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_48sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:background="@drawable/bg"
         android:backgroundTint="@color/white"
-        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -44,7 +47,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:paddingHorizontal="@dimen/_10sdp"
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/ConsBottomMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +85,6 @@
         android:layout_width="0dp"
         android:layout_height="?actionBarSize"
         android:paddingHorizontal="@dimen/_10sdp"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -91,7 +92,7 @@
         <ImageView
             android:id="@+id/IvNotification"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_8sdp"
             android:src="@drawable/ic_bell"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -102,7 +103,6 @@
             android:id="@+id/TvGroup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_5sdp"
             android:fontFamily="@font/main_bold"
             android:gravity="bottom"
             android:text="@string/my_dashboard"
@@ -119,6 +119,7 @@
         android:id="@+id/ConsWithShape"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/ConsBottomMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -225,7 +226,6 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/_12sdp"
             android:paddingTop="@dimen/_15sdp"
-            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -285,6 +285,7 @@
                 android:background="@drawable/bg_radius_light"
                 android:backgroundTint="@color/white"
                 android:paddingVertical="@dimen/_15sdp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -295,27 +296,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/ic_line_center"
+                    android:background="@drawable/ic_line_center"
                     app:layout_constraintBottom_toBottomOf="@id/TvGiveRupee"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/TvGiveRupee" />
-
-                <TextView
-                    android:id="@+id/TvRupeeTotal"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:fontFamily="@font/main_bold"
-                    android:gravity="start"
-                    android:text="@string/total"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_18sdp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/TvRupee"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.5" />
 
                 <TextView
                     android:id="@+id/TvGiveRupee"
@@ -331,25 +316,47 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/IvLineCenter"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/TvRupeeTotal"
+                    app:layout_constraintTop_toBottomOf="@id/ConsTotal"
                     app:layout_constraintWidth_percent="0.45" />
 
-                <TextView
-                    android:id="@+id/TvRupee"
-                    android:layout_width="0dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ConsTotal"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:fontFamily="@font/main_bold"
-                    android:gravity="end"
-                    android:text="@string/_2000_00"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_20sdp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@id/TvRupeeTotal"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.5" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/TvRupeeTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:fontFamily="@font/main_bold"
+                        android:gravity="start"
+                        android:text="@string/total"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_18sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/TvRupee"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/TvRupee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/main_bold"
+                        android:gravity="end"
+                        android:text="@string/_2000_00"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_20sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/TvBalanceRupee"
@@ -364,7 +371,7 @@
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/TvRupeeTotal"
+                    app:layout_constraintTop_toBottomOf="@id/ConsTotal"
                     app:layout_constraintWidth_percent="0.45" />
 
                 <TextView
@@ -405,7 +412,6 @@
                 android:layout_height="0dp"
                 android:layout_marginVertical="@dimen/_5sdp"
                 android:orientation="vertical"
-                android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -417,15 +423,86 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:padding="4dp"
-        android:src="@drawable/ic_add_icon"
-        app:backgroundTint="@color/main_color"
-        app:layout_constraintBottom_toTopOf="@id/ConsBottomMenu"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConsSetting"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/white" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <include
+            layout="@layout/layout_setting"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/ConsBlur"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingBottom="@dimen/_52sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/IvBlur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
+
+        <com.example.splitexpense.Utils.FloatingActionMenu
+            android:id="@+id/FloatingFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            app:backgroundTint="@color/main_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            fab:fab_addButtonColorNormal="@color/main_color"
+            fab:fab_addButtonColorPressed="@color/main_color_dark"
+            fab:fab_addButtonPlusIconColor="@color/white"
+            fab:fab_addButtonSize="normal"
+            fab:fab_expandDirection="up"
+            fab:fab_labelStyle="@style/fab_style">
+
+            <com.example.splitexpense.Utils.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@drawable/ic_wallet"
+                app:fab_title="New Expense"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_colorPressed="@color/main_color_dark" />
+
+            <com.example.splitexpense.Utils.FloatingActionButton
+                android:id="@+id/button_remove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@drawable/ic_pay"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_colorPressed="@color/main_color_dark"
+                fab:fab_title="New Payment" />
+
+            <com.example.splitexpense.Utils.FloatingActionButton
+                android:id="@+id/button_gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@drawable/ic_profile_logo"
+                app:fab_title="New Person"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_colorPressed="@color/main_color_dark" />
+
+        </com.example.splitexpense.Utils.FloatingActionMenu>
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:weightSum="1"
     android:background="@drawable/bg"
-    android:backgroundTint="@color/white">
+    android:backgroundTint="@color/white"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/TvFixAmount"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0.1"
         android:layout_marginTop="@dimen/_15sdp"
         android:fontFamily="@font/main_bold"
         android:gravity="center"
@@ -20,75 +23,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/TvRupeeAmountTag"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:fontFamily="@font/main_bold"
-        android:gravity="end"
-        android:text="@string/rupee_tag"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_38sdp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/TvFixAmount"
-        app:layout_constraintWidth_percent="0.36" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/TvRupeeAmount"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_5sdp"
-        android:layout_marginStart="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:fontFamily="@font/main_bold"
-        android:gravity="start"
-        android:text="@string/_0_00"
-        android:textColor="@color/black_light"
-        android:textSize="@dimen/_38sdp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/TvFixAmount"
-        app:layout_constraintWidth_percent="0.6" />
+        <TextView
+            android:id="@+id/TvRupeeAmountTag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_bold"
+            android:gravity="end"
+            android:text="@string/rupee_tag"
+            android:layout_weight="0.4"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_38sdp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/TvOKKeypad"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_38sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:background="@drawable/bg"
-        android:fontFamily="@font/main_bold"
-        android:gravity="center"
-        android:text="@string/ok"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_14sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/guideCenter"
-        app:layout_constraintWidth_percent="0.3" />
-
-    <TextView
-        android:id="@+id/TvCancelKeypad"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_38sdp"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:background="@drawable/bg_dialog"
-        android:fontFamily="@font/main_bold"
-        android:gravity="center"
-        android:text="@string/cancel"
-        android:textColor="@color/main_color"
-        android:textSize="@dimen/_14sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/TvOKKeypad"
-        app:layout_constraintStart_toStartOf="@id/guideCenter"
-        app:layout_constraintWidth_percent="0.3" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/TvRupeeAmount"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/main_bold"
+            android:gravity="start"
+            android:text="@string/_0_00"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/_38sdp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <RelativeLayout
         android:id="@+id/ConsKeypad"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.7"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/TvOKKeypad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,62 +70,54 @@
             android:layout_height="@dimen/_20sdp"
             android:src="@drawable/ic_back"
             android:tint="@color/black"
-            app:layout_constraintBottom_toTopOf="@id/guideFinish"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideRight"
-            app:layout_constraintTop_toBottomOf="@id/guideLast" />
+            android:layout_below="@id/TvNine"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:id="@+id/TvOne"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
-            android:padding="@dimen/_15sdp"
+            android:paddingHorizontal="@dimen/_40sdp"
             android:text="1"
             android:textColor="@color/black"
             android:textSize="@dimen/_24sdp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideStart"
-            app:layout_constraintEnd_toStartOf="@id/guideLeft"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/TvTwo"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
-            android:padding="@dimen/_15sdp"
+            android:paddingHorizontal="@dimen/_40sdp"
             android:text="2"
             android:textColor="@color/black"
             android:textSize="@dimen/_24sdp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideStart"
-            app:layout_constraintEnd_toStartOf="@id/guideRight"
-            app:layout_constraintStart_toEndOf="@id/guideLeft"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/TvThree"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
-            android:padding="@dimen/_15sdp"
+            android:paddingHorizontal="@dimen/_40sdp"
             android:text="3"
             android:textColor="@color/black"
             android:textSize="@dimen/_24sdp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideRight"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/TvFour"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
@@ -164,14 +126,11 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_24sdp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideEnd"
-            app:layout_constraintEnd_toStartOf="@id/guideLeft"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guideStart" />
+            android:layout_below="@id/TvOne"/>
 
         <TextView
             android:id="@+id/TvFive"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
@@ -180,30 +139,26 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_24sdp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideEnd"
-            app:layout_constraintEnd_toStartOf="@id/guideRight"
-            app:layout_constraintStart_toEndOf="@id/guideLeft"
-            app:layout_constraintTop_toBottomOf="@id/guideStart" />
+            android:layout_below="@id/TvTwo"
+            android:layout_centerInParent="true" />
 
         <TextView
             android:id="@+id/TvSix"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
             android:padding="@dimen/_15sdp"
+            android:layout_below="@id/TvThree"
             android:text="6"
             android:textColor="@color/black"
             android:textSize="@dimen/_24sdp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideEnd"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideRight"
-            app:layout_constraintTop_toBottomOf="@id/guideStart" />
+            android:layout_alignParentEnd="true"/>
 
         <TextView
             android:id="@+id/TvSeven"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
@@ -212,164 +167,185 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_24sdp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideLast"
-            app:layout_constraintEnd_toStartOf="@id/guideLeft"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guideEnd" />
+            android:layout_below="@id/TvFour" />
 
         <TextView
             android:id="@+id/TvEight"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp"
+            android:layout_below="@id/TvFive"
+            android:layout_centerInParent="true"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
             android:padding="@dimen/_15sdp"
             android:text="8"
             android:textColor="@color/black"
             android:textSize="@dimen/_24sdp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideLast"
-            app:layout_constraintEnd_toStartOf="@id/guideRight"
-            app:layout_constraintStart_toEndOf="@id/guideLeft"
-            app:layout_constraintTop_toBottomOf="@id/guideEnd" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/TvNine"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
+            android:layout_below="@id/TvSix"
+            android:layout_alignParentEnd="true"
             android:padding="@dimen/_15sdp"
             android:text="9"
             android:textColor="@color/black"
             android:textSize="@dimen/_24sdp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideLast"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideRight"
-            app:layout_constraintTop_toBottomOf="@id/guideEnd" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/TvDot"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp"
+            android:layout_below="@id/TvSeven"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
             android:padding="@dimen/_15sdp"
             android:text="."
             android:textColor="@color/black"
             android:textSize="@dimen/_24sdp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideFinish"
-            app:layout_constraintEnd_toStartOf="@id/guideLeft"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guideLast" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/TvZero"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_70sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_below="@id/TvEight"
+            android:layout_centerInParent="true"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
-            android:padding="@dimen/_15sdp"
+            android:paddingHorizontal="@dimen/_40sdp"
             android:text="0"
             android:textColor="@color/black"
             android:textSize="@dimen/_24sdp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/guideFinish"
-            app:layout_constraintEnd_toStartOf="@id/guideRight"
-            app:layout_constraintStart_toEndOf="@id/guideLeft"
-            app:layout_constraintTop_toBottomOf="@id/guideLast" />
+            android:textStyle="bold"/>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="0dp"
-            android:background="@color/line_color"
-            app:layout_constraintBottom_toBottomOf="@id/guideFinish"
-            app:layout_constraintStart_toStartOf="@+id/guideLeft"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:weightSum="1">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="@color/line_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guideStart" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="@color/line_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guideEnd" />
+            <View
+                android:id="@+id/ViewCenterLeft"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/line_color" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="@color/line_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guideLast" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33" />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="0dp"
-            android:background="@color/line_color"
-            app:layout_constraintBottom_toTopOf="@id/guideFinish"
-            app:layout_constraintStart_toStartOf="@+id/guideRight"
-            app:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:id="@+id/ViewCenterRight"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/line_color" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="0.33"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@id/TvZero"
+            android:layout_alignParentTop="true"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.33" />
+            android:layout_marginTop="@dimen/_10sdp"
+            android:weightSum="1">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.12" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="0.28"
+                android:layout_height="0dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_color"/>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.25" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="0.28"
+                android:layout_height="0dp"/>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideLast"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.38" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_color" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideFinish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.51" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="0.28"
+                android:layout_height="0dp"/>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideRight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.66" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_color"/>
+        </LinearLayout>
+    </RelativeLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideCenter"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        android:layout_weight="0.1"
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2" />
+
+        <TextView
+            android:id="@+id/TvOKKeypad"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/bg"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:text="@string/ok"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintTop_toBottomOf="@id/ConsKeypad"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <TextView
+            android:id="@+id/TvCancelKeypad"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:background="@drawable/bg_dialog"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintStart_toEndOf="@id/TvOKKeypad"
+            app:layout_constraintTop_toBottomOf="@id/ConsKeypad"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"/>
+    </LinearLayout>
+
+</LinearLayout>

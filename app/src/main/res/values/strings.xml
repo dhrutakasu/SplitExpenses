@@ -34,7 +34,7 @@
     <string name="_6_transactions_6000_spent">6 transactions  •  ₹6000 Spent</string>
     <string name="expense">Expense</string>
     <string name="_2000_00">₹2000.00</string>
-    <string name="paid_by_harsh_on_18_feb_for_vipul_bhai">Paid by Harsh on 18 feb for Vipul bhai</string>
+    <string name="paid_by_on_18_feb_for_vipul_bhai">Paid by %1$s on 18 feb for Vipul bhai</string>
     <string name="total">Total</string>
     <string name="_2000_give">₹ 2000\nGive</string>
     <string name="_6000_nbalance">₹ 6000\nBalance</string>
@@ -75,4 +75,15 @@
     <string name="need_help">Need help?</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="terms_and_conditions">Terms and conditions</string>
+    <string name="edit">Edit</string>
+    <string name="duplicate">Duplicate</string>
+    <string name="copy_withing_another_group">Copy withing another group</string>
+    <string name="delete">Delete</string>
+    <string name="search">Search</string>
+    <string name="edit_group">Edit Group</string>
+    <string name="share_group">Share Group</string>
+    <string name="history">History</string>
+    <string name="balance_details">Balance Details</string>
+    <string name="setting">Setting</string>
+
 </resources>

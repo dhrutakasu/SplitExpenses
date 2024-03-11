@@ -11,7 +11,7 @@
         app:cnb_textColor="@color/white"
         app:cnb_iconColor="@color/white" />
     <item
-        android:id="@+id/Menu_Calculators"
+        android:id="@+id/MenuAddMember"
         android:icon="@drawable/ic_add_file"
         android:title=""
         app:cnb_backgroundColor="@color/main_color"
@@ -19,7 +19,7 @@
         app:cnb_textColor="@color/white"
         app:cnb_iconColor="@color/white" />
     <item
-        android:id="@+id/Menu_Funds"
+        android:id="@+id/MenuGraph"
         android:icon="@drawable/ic_expense"
         android:title="Schemes"
         app:cnb_backgroundColor="@color/main_color"

@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.splitexpense.R
 import com.example.splitexpense.databinding.LayoutMemberListBinding
+import java.lang.reflect.Member
 
-class MemberListAdapter(val context: Context) :
+class MemberListAdapter(val context: Context,val member:MemberClick) :
     RecyclerView.Adapter<MemberListAdapter.MyViewHolder>() {
     private var isSelection: Int = -1
 
@@ -46,11 +47,14 @@ class MemberListAdapter(val context: Context) :
         holder.itemView.setOnClickListener {
             isSelection = position
             notifyDataSetChanged()
-
+            member.onMemberClick()
         }
     }
 
     override fun getItemCount(): Int {
         return 10
+    }
+    interface MemberClick{
+        fun onMemberClick()
     }
 }

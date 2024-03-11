@@ -57,4 +57,7 @@ dependencies {
 
     //todo blurview dependency
     implementation("jp.wasabeef:blurry:4.0.1")
+
+    //todo floating dependency
+//    implementation("com.getbase:floatingactionbutton:1.10.1")
 }

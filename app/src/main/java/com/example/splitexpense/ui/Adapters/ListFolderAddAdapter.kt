@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.splitexpense.databinding.LayoutListFolderBinding
 
-class ListFolderAddAdapter(context: Context) : RecyclerView.Adapter<ListFolderAddAdapter.MyViewHolder>() {
+class ListFolderAddAdapter(val context: Context, val list: ListFolderClick) :
+    RecyclerView.Adapter<ListFolderAddAdapter.MyViewHolder>() {
     class MyViewHolder(ItemView: LayoutListFolderBinding) : RecyclerView.ViewHolder(ItemView.root) {
     }
 
@@ -20,9 +21,16 @@ class ListFolderAddAdapter(context: Context) : RecyclerView.Adapter<ListFolderAd
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.itemView.setOnClickListener {
+            list.onFolderClick()
+        }
     }
 
     override fun getItemCount(): Int {
         return 10
+    }
+
+    interface ListFolderClick {
+        fun onFolderClick()
     }
 }

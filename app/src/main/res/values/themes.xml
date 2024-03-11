@@ -2,7 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SplitExpense" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/main_color_dark</item>
+        <item name="colorPrimary">@color/main_color_dark</item>
         <item name="android:includeFontPadding">false</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 </resources>
