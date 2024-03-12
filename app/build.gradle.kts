@@ -58,6 +58,9 @@ dependencies {
     //todo blurview dependency
     implementation("jp.wasabeef:blurry:4.0.1")
 
+    //todo glide dependancy
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
     //todo floating dependency
 //    implementation("com.getbase:floatingactionbutton:1.10.1")
 }

@@ -15,7 +15,7 @@
         android:layout_height="@dimen/_48sdp"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/bg"
+        android:background="@drawable/bg_50"
         android:backgroundTint="@color/white"
         android:paddingHorizontal="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,48 +43,12 @@
     </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ConsHomeView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:paddingHorizontal="@dimen/_10sdp"
-        app:layout_constraintBottom_toTopOf="@id/ConsBottomMenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ConsToolBar">
-
-        <TextView
-            android:id="@+id/TvListFolder"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/main_bold"
-            android:text="@string/my_list_amp_folders"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RvListAndFolder"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/TvListFolder"
-            tools:itemCount="10"
-            tools:listitem="@layout/layout_list_folder" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConsToolBar"
         android:layout_width="0dp"
         android:layout_height="?actionBarSize"
+        android:background="@drawable/ic_shadow_bar"
         android:paddingHorizontal="@dimen/_10sdp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -95,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_8sdp"
             android:src="@drawable/ic_bell"
+            android:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -106,7 +71,7 @@
             android:fontFamily="@font/main_bold"
             android:gravity="bottom"
             android:text="@string/my_dashboard"
-            android:textColor="@color/main_color"
+            android:textColor="@color/white"
             android:textSize="@dimen/_18sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/IvNotification"
@@ -119,7 +84,6 @@
         android:id="@+id/ConsWithShape"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/ConsBottomMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -150,6 +114,7 @@
             app:layout_constraintTop_toBottomOf="@id/ConsToolBarGroup">
 
             <include
+                android:id="@+id/LayoutAmount"
                 layout="@layout/layout_amount_rupee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -190,7 +155,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginVertical="@dimen/_8sdp"
-                android:background="@drawable/bg"
+                android:background="@drawable/bg_50"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/main_bold"
                 android:gravity="center"
@@ -224,6 +189,7 @@
             android:id="@+id/ConsExpenseMembers"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:visibility="gone"
             android:layout_marginHorizontal="@dimen/_12sdp"
             android:paddingTop="@dimen/_15sdp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -235,7 +201,7 @@
                 android:id="@+id/ConsGroupTab"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_48sdp"
-                android:background="@drawable/bg"
+                android:background="@drawable/bg_20"
                 android:backgroundTint="@color/white_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -247,7 +213,7 @@
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/_5sdp"
                     android:layout_marginHorizontal="@dimen/_8sdp"
-                    android:background="@drawable/bg"
+                    android:background="@drawable/bg_50"
                     android:backgroundTint="@color/white"
                     android:fontFamily="@font/main_bold"
                     android:gravity="center"
@@ -285,7 +251,6 @@
                 android:background="@drawable/bg_radius_light"
                 android:backgroundTint="@color/white"
                 android:paddingVertical="@dimen/_15sdp"
-                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -318,6 +283,37 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ConsTotal"
                     app:layout_constraintWidth_percent="0.45" />
+
+                <TextView
+                    android:id="@+id/TvBalanceRupee"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:fontFamily="@font/main_bold"
+                    android:gravity="center"
+                    android:text="@string/_6000_nbalance"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ConsTotal"
+                    app:layout_constraintWidth_percent="0.45" />
+
+                <TextView
+                    android:id="@+id/TvPerPersonRupee"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:fontFamily="@font/main_bold"
+                    android:gravity="center"
+                    android:text="@string/per_person_balance_6000"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/TvBalanceRupee" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/ConsTotal"
@@ -358,37 +354,6 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/TvBalanceRupee"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:fontFamily="@font/main_bold"
-                    android:gravity="center"
-                    android:text="@string/_6000_nbalance"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ConsTotal"
-                    app:layout_constraintWidth_percent="0.45" />
-
-                <TextView
-                    android:id="@+id/TvPerPersonRupee"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:fontFamily="@font/main_bold"
-                    android:gravity="center"
-                    android:text="@string/per_person_balance_6000"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/TvBalanceRupee" />
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/RvPersonData"
                     android:layout_width="0dp"
@@ -421,6 +386,156 @@
                 tools:listitem="@layout/layout_tab_type" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConsAddExpense"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:paddingTop="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ConsToolBarGroup">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/bg_radius_light"
+                android:backgroundTint="@color/white"
+                android:paddingVertical="@dimen/_15sdp"
+                app:layout_constraintTop_toBottomOf="@id/ConsGroupOptions"
+                android:paddingHorizontal="@dimen/_15sdp">
+
+                <TextView
+                    android:id="@+id/TvThailand"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/main_bold"
+                    android:gravity="bottom"
+                    android:text="@string/thailand"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/_24sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/TvDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/main_bold"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@string/date"
+                    android:textColor="@color/light_text_color"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/TvOperationsCount"
+                    app:layout_constraintTop_toBottomOf="@id/TvThailand" />
+
+                <TextView
+                    android:id="@+id/TvOperations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/main_bold"
+                    android:text="12"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_24sdp"
+                    app:layout_constraintStart_toEndOf="@+id/TvDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/TvThailand"
+                    app:layout_constraintTop_toTopOf="@id/TvThailand" />
+
+                <TextView
+                    android:id="@+id/TvOperationsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/main_bold"
+                    android:text="@string/operations"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/TvDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/TvDate"
+                    app:layout_constraintBottom_toBottomOf="@id/TvDate" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ConsGroupOptions"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_45sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/TvCreateNewGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:background="@drawable/ic_radius_box"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/main_bold"
+                    android:gravity="center"
+                    android:text="@string/create_new_group"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/TvImportGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:background="@drawable/ic_radius_box"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/main_bold"
+                    android:gravity="center"
+                    android:text="@string/import_group"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineCenter"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineCenter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/IvShare"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="@string/share_this_app"
+                android:fontFamily="@font/main_bold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:drawablePadding="@dimen/_12sdp"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_6sdp"
+                android:paddingVertical="@dimen/_6sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:background="@drawable/bg_50"
+                android:backgroundTint="@color/white"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:drawableStart="@drawable/ic_share"
+                fab:layout_constraintBottom_toBottomOf="parent"
+                fab:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -428,10 +543,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <include
             layout="@layout/layout_setting"
@@ -441,6 +556,46 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConsHomeView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/ConsBottomMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ConsToolBar">
+
+        <TextView
+            android:id="@+id/TvListFolder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/main_bold"
+            android:text="@string/my_list_amp_folders"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RvListAndFolder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/TvListFolder"
+            tools:itemCount="10"
+            tools:listitem="@layout/layout_list_folder" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
@@ -457,7 +612,9 @@
             android:id="@+id/IvBlur"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true" />
+            android:alpha="0.8"
+            android:visibility="invisible"
+            android:background="@color/white" />
 
         <com.example.splitexpense.Utils.FloatingActionMenu
             android:id="@+id/FloatingFab"

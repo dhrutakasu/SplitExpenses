@@ -85,5 +85,8 @@
     <string name="history">History</string>
     <string name="balance_details">Balance Details</string>
     <string name="setting">Setting</string>
+    <string name="thailand">Thailand</string>
+    <string name="operations">Operations</string>
+    <string name="share_this_app">Share this app!</string>
 
 </resources>

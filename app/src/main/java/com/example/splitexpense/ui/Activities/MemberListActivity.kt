@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.Gravity
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.TextView
@@ -64,16 +65,145 @@ class MemberListActivity : AppCompatActivity() {
                     val Tv3Share = dialog.findViewById<TextView>(R.id.Tv3Share)
                     val TvOther = dialog.findViewById<TextView>(R.id.TvOther)
                     val TvFixed = dialog.findViewById<TextView>(R.id.TvFixed)
+                    TvNone.setOnClickListener {
+                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvFixed.isSelected = false
+                        Tv12Share.isSelected = false
+                        Tv1Share.isSelected = false
+                        Tv2Share.isSelected = false
+                        Tv3Share.isSelected = false
+                        TvOther.isSelected = false
+                        TvNone.isSelected = true
+                        Handler().postDelayed({
+//                            dialog.dismiss()
+//                            Dilaogkeypad()
+                        }, 500)
+                    }
+                    Tv12Share.setOnClickListener {
+                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvNone.isSelected = false
+                        TvFixed.isSelected = false
+                        Tv1Share.isSelected = false
+                        Tv2Share.isSelected = false
+                        Tv3Share.isSelected = false
+                        TvOther.isSelected = false
+                        Tv12Share.isSelected = true
+                        Handler().postDelayed({
+//                            dialog.dismiss()
+//                            Dilaogkeypad()
+                        }, 500)
+                    }
                     Tv1Share.setOnClickListener {
-                        it.background.setColorFilter(
-                            resources.getColor(R.color.main_color),
-                            PorterDuff.Mode.SRC_ATOP
-                        )
-                        it.isSelected = true
+                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvNone.isSelected = false
+                        Tv12Share.isSelected = false
+                        TvFixed.isSelected = false
+                        Tv2Share.isSelected = false
+                        Tv3Share.isSelected = false
+                        TvOther.isSelected = false
+                        Tv1Share.isSelected = true
+                        Handler().postDelayed({
+//                            dialog.dismiss()
+//                            Dilaogkeypad()
+                        }, 500)
+                    }
+                    Tv2Share.setOnClickListener {
+                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvNone.isSelected = false
+                        Tv12Share.isSelected = false
+                        Tv1Share.isSelected = false
+                        TvFixed.isSelected = false
+                        Tv3Share.isSelected = false
+                        TvOther.isSelected = false
+                        Tv2Share.isSelected = true
                         Handler().postDelayed({
                             dialog.dismiss()
-//                        Dilaogkeypad()
-                        }, 2000)
+                            Dilaogkeypad()
+                        }, 500)
+                    }
+                    Tv3Share.setOnClickListener {
+                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvNone.isSelected = false
+                        Tv12Share.isSelected = false
+                        Tv1Share.isSelected = false
+                        Tv2Share.isSelected = false
+                        TvFixed.isSelected = false
+                        TvOther.isSelected = false
+                        Tv3Share.isSelected = true
+                        Handler().postDelayed({
+                            dialog.dismiss()
+                            Dilaogkeypad()
+                        }, 500)
+                    }
+                    TvOther.setOnClickListener {
+                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvNone.isSelected = false
+                        Tv12Share.isSelected = false
+                        Tv1Share.isSelected = false
+                        Tv2Share.isSelected = false
+                        Tv3Share.isSelected = false
+                        TvOther.isSelected = true
+                        TvFixed.isSelected = false
+                        Handler().postDelayed({
+                            dialog.dismiss()
+                            Dilaogkeypad()
+                        }, 500)
+                    }
+                    TvFixed.setOnClickListener {
+                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvNone.isSelected = false
+                        Tv12Share.isSelected = false
+                        Tv1Share.isSelected = false
+                        Tv2Share.isSelected = false
+                        Tv3Share.isSelected = false
+                        TvOther.isSelected = false
+                        TvFixed.isSelected = true
+                        Handler().postDelayed({
+                            dialog.dismiss()
+                            Dilaogkeypad()
+                        }, 500)
                     }
                     dialog.show()
                 }

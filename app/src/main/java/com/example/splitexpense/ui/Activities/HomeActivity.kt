@@ -10,18 +10,18 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
-import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.ImageView
+import android.widget.ArrayAdapter
 import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.example.splitexpense.R
+import com.example.splitexpense.Utils.BlurTransformation
 import com.example.splitexpense.databinding.ActivityHomeBinding
 import com.example.splitexpense.ui.Adapters.ExpenseAdapter
 import com.example.splitexpense.ui.Adapters.ListFolderAddAdapter
@@ -59,28 +59,39 @@ class HomeActivity : AppCompatActivity() {
                     binding.ConsHomeView.visibility = View.GONE
                     binding.ConsToolBar.visibility = View.GONE
                     binding.ConsWithShape.visibility = View.VISIBLE
+                    binding.ConsExpenseMembers.visibility = View.GONE
+                    binding.ConsMembers.visibility = View.GONE
+                    binding.RvExpense.visibility = View.VISIBLE
+                    binding.ScrollAmountRupee.visibility = View.GONE
+                    binding.ConsAddExpense.visibility = View.GONE
                     binding.ConsBlur.visibility = View.VISIBLE
+
+//                    Glide.with(this@HomeActivity).load(R.drawable.blur).apply(
+//                        bitmapTransform(
+//                            BlurTransformation(this@HomeActivity)
+//                        )
+//                    ).into(binding.IvBlur)
 //                    Blurry.with(this@HomeActivity)
 //                        .radius(25)
 //                        .sampling(2)
 //                        .async()
 //                        .animate(500)
 //                        .onto(findViewById<View>(R.id.ConsBlur) as ViewGroup)
-                    Blurry.with(this@HomeActivity)
-                        .radius(25)
-                        .sampling(4)
-                        .color(Color.argb(66, 255, 255, 0))
-                        .capture(binding.IvBlur)
-                        .getAsync {
-                            binding.IvBlur.setImageDrawable(
-                                BitmapDrawable(resources, it)
-                            )
-                        }
+//                    Blurry.with(this@HomeActivity)
+//                        .radius(25)
+//                        .sampling(4)
+//                        .color(Color.argb(66, 255, 255, 0))
+//                        .capture(binding.IvBlur)
+//                        .getAsync {
+//                            binding.IvBlur.setImageDrawable(
+//                                BitmapDrawable(resources, it)
+//                            )
+//                        }
 
                     binding.ConsExpenseMembers.visibility = View.VISIBLE
                     binding.ConsMembers.visibility = View.GONE
                     binding.RvExpense.visibility = View.VISIBLE
-                    binding.TvExpense.setBackgroundResource(R.drawable.bg)
+                    binding.TvExpense.setBackgroundResource(R.drawable.bg_50)
                     binding.TvExpense.background.setColorFilter(
                         resources.getColor(R.color.white),
                         PorterDuff.Mode.SRC_ATOP
@@ -89,7 +100,7 @@ class HomeActivity : AppCompatActivity() {
                 }
             })
         binding.TvExpense.setOnClickListener {
-            binding.TvExpense.setBackgroundResource(R.drawable.bg)
+            binding.TvExpense.setBackgroundResource(R.drawable.bg_50)
             binding.TvExpense.background.setColorFilter(
                 resources.getColor(R.color.white),
                 PorterDuff.Mode.SRC_ATOP
@@ -101,7 +112,7 @@ class HomeActivity : AppCompatActivity() {
             binding.RvExpense.visibility = View.VISIBLE
         }
         binding.TvMembers.setOnClickListener {
-            binding.TvMembers.setBackgroundResource(R.drawable.bg)
+            binding.TvMembers.setBackgroundResource(R.drawable.bg_50)
             binding.TvMembers.background.setColorFilter(
                 resources.getColor(R.color.white),
                 PorterDuff.Mode.SRC_ATOP
@@ -112,6 +123,13 @@ class HomeActivity : AppCompatActivity() {
             binding.ConsMembers.visibility = View.VISIBLE
             binding.RvExpense.visibility = View.GONE
         }
+        val adapter = ArrayAdapter(
+            this@HomeActivity,
+            android.R.layout.simple_spinner_item,
+            arrayOf("Indian Rupee", "Pakistani Rupee")
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.LayoutAmount.SpinnerRupee.adapter = adapter
         binding.RvPersonData.layoutManager = LinearLayoutManager(this@HomeActivity)
         binding.RvPersonData.adapter = PersonDataAdapter(this@HomeActivity)
         binding.RvExpense.layoutManager = LinearLayoutManager(this@HomeActivity)
@@ -122,7 +140,10 @@ class HomeActivity : AppCompatActivity() {
                     binding.ConsExpenseMembers.visibility = View.GONE
                     binding.ConsHomeView.visibility = View.GONE
                     binding.ConsToolBar.visibility = View.GONE
-                    binding.ConsWithShape.visibility = View.GONE
+                    binding.RvExpense.visibility = View.GONE
+                    binding.ConsAddExpense.visibility = View.GONE
+                    binding.ConsMembers.visibility = View.GONE
+                    binding.ConsWithShape.visibility = View.VISIBLE
                     binding.ConsBlur.visibility = View.GONE
                     binding.ConsSetting.visibility = View.GONE
                 }
@@ -162,16 +183,36 @@ class HomeActivity : AppCompatActivity() {
             popupWindow.dismiss()
             false
         }
+        binding.LayoutAmount.TvEditSplit.setOnClickListener {
+            startActivity(Intent(this@HomeActivity, MemberListActivity::class.java))
+        }
+
 
 
         binding.bottomMenu.setOnItemSelectedListener(object :
             ChipNavigationBar.OnItemSelectedListener {
             override fun onItemSelected(id: Int) {
                 when (id) {
+                    R.id.Menu_Home -> {
+                        binding.ConsHomeView.visibility = View.VISIBLE
+                        binding.ConsToolBar.visibility = View.VISIBLE
+                        binding.ConsWithShape.visibility = View.GONE
+                        binding.ConsAddExpense.visibility = View.GONE
+                        binding.ConsBlur.visibility = View.GONE
+                        binding.ConsSetting.visibility = View.GONE
+                    }
+
                     R.id.MenuAddMember -> {
-                        Handler().postDelayed({
-                            startActivity(Intent(this@HomeActivity, MemberListActivity::class.java))
-                        }, 2000)
+                        binding.ConsHomeView.visibility = View.GONE
+                        binding.ConsToolBar.visibility = View.GONE
+                        binding.ConsExpenseMembers.visibility = View.GONE
+                        binding.ConsMembers.visibility = View.GONE
+                        binding.RvExpense.visibility = View.GONE
+                        binding.ScrollAmountRupee.visibility = View.GONE
+                        binding.ConsWithShape.visibility = View.VISIBLE
+                        binding.ConsAddExpense.visibility = View.VISIBLE
+                        binding.ConsBlur.visibility = View.GONE
+                        binding.ConsSetting.visibility = View.GONE
                     }
 
                     R.id.Menu_Settings -> {
@@ -179,6 +220,7 @@ class HomeActivity : AppCompatActivity() {
                         binding.ConsToolBar.visibility = View.GONE
                         binding.ConsWithShape.visibility = View.GONE
                         binding.ConsWithShape.visibility = View.GONE
+                        binding.ConsAddExpense.visibility = View.GONE
                         binding.ConsBlur.visibility = View.GONE
                         binding.ConsSetting.visibility = View.VISIBLE
                     }
@@ -190,7 +232,7 @@ class HomeActivity : AppCompatActivity() {
         binding.ConsHomeView.visibility = View.VISIBLE
         binding.ConsToolBar.visibility = View.VISIBLE
         binding.ConsWithShape.visibility = View.GONE
-        binding.ConsWithShape.visibility = View.GONE
+        binding.ConsAddExpense.visibility = View.GONE
         binding.ConsBlur.visibility = View.GONE
         binding.ConsSetting.visibility = View.GONE
     }

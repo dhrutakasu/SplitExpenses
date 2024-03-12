@@ -3,16 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ConsData"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_45sdp"
+    android:layout_height="@dimen/_40sdp"
     android:layout_marginVertical="@dimen/_5sdp"
-    android:background="@drawable/bg"
+    android:background="@drawable/bg_50"
     android:backgroundTint="@color/white"
-    android:paddingHorizontal="@dimen/_15sdp">
+    android:paddingStart="@dimen/_8sdp"
+    android:paddingEnd="@dimen/_15sdp">
 
     <TextView
         android:id="@+id/TvMembersGroupName"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:drawableStart="@drawable/ic_radio_selector"
         android:drawablePadding="@dimen/_10sdp"
         android:fontFamily="@font/main_bold"
