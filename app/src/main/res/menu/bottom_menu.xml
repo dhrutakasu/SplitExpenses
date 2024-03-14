@@ -13,7 +13,7 @@
     <item
         android:id="@+id/MenuAddMember"
         android:icon="@drawable/ic_add_file"
-        android:title=""
+        android:title="Add Member"
         app:cnb_backgroundColor="@color/main_color"
         app:cnb_iconTintMode="src_in"
         app:cnb_textColor="@color/white"
@@ -21,7 +21,7 @@
     <item
         android:id="@+id/MenuGraph"
         android:icon="@drawable/ic_expense"
-        android:title="Schemes"
+        android:title="Report"
         app:cnb_backgroundColor="@color/main_color"
         app:cnb_iconTintMode="src_in"
         app:cnb_textColor="@color/white"

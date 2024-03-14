@@ -10,5 +10,6 @@
     <color name="main_color_light">#D3E4FF</color>
     <color name="hint_text_color">#707070</color>
     <color name="light_text_color">#9D9D9D</color>
+    <color name="text_color">#1F4381</color>
     <color name="line_color">#D9D9D9</color>
 </resources>

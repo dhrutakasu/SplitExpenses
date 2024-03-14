@@ -24,7 +24,9 @@ class AddMemberActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-
+        binding.LayoutTool.ConsLeft.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initActions() {

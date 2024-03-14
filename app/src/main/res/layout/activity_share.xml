@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color_light"
+    tools:context=".ui.Activities.ShareActivity">
+
+    <ImageView
+        android:id="@+id/IvBar"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_bar_polygon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConsToolBarGroup"
+        android:layout_width="0dp"
+        android:layout_height="?actionBarSize"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/IvBackHome"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_back"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TvGroupName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:fontFamily="@font/main_bold"
+            android:gravity="bottom"
+            android:text="@string/share"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/IvBackHome"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ConsToolBarGroup">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConsInvite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_radius_light"
+            android:backgroundTint="@color/white"
+            android:padding="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/IvShareVector"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_share_vector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/TvInviteMember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_bold"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="@string/invite_members"
+                android:textColor="@color/main_color"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/IvShareVector" />
+
+            <TextView
+                android:id="@+id/TvInviteMemberMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_bold"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/each_member_will_be_able_to_ncheck_and_add_expenses"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/TvInviteMember" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConsGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_radius_light"
+            android:backgroundTint="@color/white"
+            android:padding="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ConsInvite">
+
+            <TextView
+                android:id="@+id/TvGroupId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_bold"
+                android:gravity="center_vertical"
+                android:text="@string/group_id"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ConsGroupOptions"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/TvGroupId">
+
+                <TextView
+                    android:id="@+id/TvGroupIdNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:background="@drawable/ic_radius_box"
+                    android:backgroundTint="@color/main_color_tab"
+                    android:fontFamily="@font/main_bold"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:singleLine="true"
+                    android:drawableStart="@drawable/ic_group_id"
+                    android:text="@string/bxfhhvruydf"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/TvCreatePasswordPopup"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:background="@drawable/ic_radius_box"
+                    android:backgroundTint="@color/main_color"
+                    android:fontFamily="@font/main_bold"
+                    android:gravity="center"
+                    android:text="@string/create_password"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guidelineCenter"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineCenter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

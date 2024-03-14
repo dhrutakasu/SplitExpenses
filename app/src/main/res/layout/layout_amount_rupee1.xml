@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConsAmountRupee"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_radius_light"
+    android:backgroundTint="@color/white"
+    android:paddingHorizontal="@dimen/_18sdp"
+    android:paddingVertical="@dimen/_15sdp"
+    android:orientation="vertical"
+    android:weightSum="1"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@+id/TvTotalAmount"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.04"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/main_medium"
+        android:gravity="center"
+        android:text="@string/total_amount"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.12"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/TvRupeeAmountTag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/main_bold"
+            android:gravity="end"
+            android:text="@string/rupee_tag"
+            android:layout_weight="0.4"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_40sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/TvTotalAmount"
+            app:layout_constraintWidth_percent="0.36" />
+
+        <TextView
+            android:id="@+id/TvRupeeAmount"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/main_bold"
+            android:gravity="start"
+            android:text="@string/_0_00"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/_40sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/TvTotalAmount"
+            app:layout_constraintWidth_percent="0.6" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.06"
+        android:weightSum="1"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/IvMoney"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_money"
+            app:layout_constraintBottom_toBottomOf="@id/SpinnerRupee"
+            app:layout_constraintEnd_toStartOf="@id/SpinnerRupee"
+            app:layout_constraintTop_toTopOf="@id/SpinnerRupee" />
+
+        <Spinner
+            android:id="@+id/SpinnerRupee"
+            style="@style/SpinnerTheme"
+            android:padding="@dimen/_5sdp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_weight="0.4"
+            app:layout_constraintEnd_toEndOf="@id/TvRupeeAmount"
+            app:layout_constraintStart_toStartOf="@id/TvRupeeAmountTag"
+            app:layout_constraintTop_toBottomOf="@id/TvRupeeAmount"
+            app:layout_constraintWidth_percent="0.35" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConsTab"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.09"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:background="@drawable/bg_50"
+        android:backgroundTint="@color/main_color_tab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SpinnerRupee">
+
+        <TextView
+            android:id="@+id/TvExpenseTab"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/bg_50"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:text="@string/expense"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/TvIncome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TvIncome"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:text="@string/income"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/TvTransfer"
+            app:layout_constraintStart_toEndOf="@id/TvExpenseTab"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TvTransfer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:text="@string/transfer"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/TvIncome"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/TvExpensePaid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.035"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:fontFamily="@font/main_medium"
+        android:gravity="start"
+        android:text="@string/expense_paid_by"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ConsTab" />
+
+    <TextView
+        android:id="@+id/TvExpensePaidName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.11"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/bg_50"
+        android:backgroundTint="@color/main_color_tab"
+        android:drawableStart="@drawable/ic_profile_logo"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/main_bold"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:text="@string/dummy"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TvExpensePaid" />
+
+    <TextView
+        android:id="@+id/TvAmountPaid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.035"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:fontFamily="@font/main_medium"
+        android:gravity="start"
+        android:text="@string/amount_paid_by"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/RvAmountData"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TvExpensePaidName" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RvAmountData"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.18"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/TvEditSplit"
+        app:layout_constraintTop_toBottomOf="@id/TvAmountPaid"
+        tools:itemCount="10"
+        tools:listitem="@layout/layout_amount_paid" />
+
+    <TextView
+        android:id="@+id/TvEditSplit"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.08"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/bg_50"
+        android:drawableStart="@drawable/ic_edit_pen"
+        android:drawablePadding="@dimen/_5sdp"
+        android:fontFamily="@font/main_bold"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:text="@string/edit_splits"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toTopOf="@id/TvComments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RvAmountData" />
+
+    <TextView
+        android:id="@+id/TvComments"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.035"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/main_medium"
+        android:gravity="start"
+        android:text="@string/comment"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/EdtComments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TvEditSplit" />
+
+    <EditText
+        android:id="@+id/EdtComments"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.215"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/bg_radius_light"
+        android:backgroundTint="@color/main_color_tab"
+        android:fontFamily="@font/main_bold"
+        android:gravity="start"
+        android:hint="@string/add_a_comment"
+        android:inputType="textMultiLine"
+        android:lines="4"
+        android:padding="@dimen/_15sdp"
+        android:singleLine="false"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TvComments" />
+
+</LinearLayout>

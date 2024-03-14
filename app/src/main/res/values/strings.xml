@@ -88,5 +88,10 @@
     <string name="thailand">Thailand</string>
     <string name="operations">Operations</string>
     <string name="share_this_app">Share this app!</string>
+    <string name="share">Share</string>
+    <string name="invite_members">Invite members</string>
+    <string name="each_member_will_be_able_to_ncheck_and_add_expenses">Each member will be able to\ncheck and add expenses.</string>
+    <string name="bxfhhvruydf">BXFHHVRUYDF...</string>
+    <string name="create_password">Create Password</string>
 
 </resources>

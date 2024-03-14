@@ -7,13 +7,19 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
+import android.view.Gravity;
 import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
@@ -522,9 +528,26 @@ public class FloatingActionMenu extends ViewGroup {
             if (button == mAddButton || title == null ||
                     button.getTag(R.id.fab_label) != null) continue;
 
+//            int titleTextSizeSmall = 12; // Define the smaller text size in pixels
+//            int titleTextSizeNormal = 16; // Define the normal text size in pixels
+//            int titleTextColor = Color.WHITE; // Define the text color
+//            int titleTextColorsmall = Color.parseColor("#4DFFFFFF"); // Define the text color
+//
+//            SpannableStringBuilder spanBuilder = new SpannableStringBuilder(button.getTitle());
+//
+//// Setting smaller text size for the second line
+//            spanBuilder.setSpan(new AbsoluteSizeSpan(titleTextSizeSmall), button.getTitle().indexOf("\n") + 1, button.getTitle().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//// Setting normal text size for the first line
+//            spanBuilder.setSpan(new AbsoluteSizeSpan(titleTextSizeNormal), 0, button.getTitle().indexOf("\n"), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//
+//            spanBuilder.setSpan(new ForegroundColorSpan(titleTextColor), 0, button.getTitle().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
             TextView label = new TextView(context);
             label.setTextAppearance(getContext(), mLabelsStyle);
             label.setText(button.getTitle());
+            label.setTextSize(14f);
+            label.setGravity(Gravity.CENTER_HORIZONTAL);
+            label.setBackgroundColor(android.R.color.transparent);
             addView(label);
 
             button.setTag(R.id.fab_label, label);

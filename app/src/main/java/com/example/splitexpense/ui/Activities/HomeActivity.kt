@@ -1,13 +1,17 @@
 package com.example.splitexpense.ui.Activities
 
+import android.app.Activity
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.PorterDuff
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.Handler
+import android.util.DisplayMetrics
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -15,19 +19,19 @@ import android.view.ViewGroup.LayoutParams
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.PopupWindow
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.example.splitexpense.R
-import com.example.splitexpense.Utils.BlurTransformation
+import com.example.splitexpense.Utils.FloatingActionMenu
 import com.example.splitexpense.databinding.ActivityHomeBinding
 import com.example.splitexpense.ui.Adapters.ExpenseAdapter
 import com.example.splitexpense.ui.Adapters.ListFolderAddAdapter
 import com.example.splitexpense.ui.Adapters.PersonDataAdapter
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
-import jp.wasabeef.blurry.Blurry
 
 
 class HomeActivity : AppCompatActivity() {
@@ -52,6 +56,22 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initActions() {
+        binding.IvBackHome.setOnClickListener {
+            binding.ConsHomeView.visibility = View.VISIBLE
+            binding.ConsToolBar.visibility = View.VISIBLE
+            binding.ConsWithShape.visibility = View.GONE
+            binding.ConsAddExpense.visibility = View.GONE
+            binding.ConsBlur.visibility = View.GONE
+            binding.ConsSetting.visibility = View.GONE
+        }
+        binding.LayoutSetting.ConsLeft.setOnClickListener {
+            binding.ConsHomeView.visibility = View.VISIBLE
+            binding.ConsToolBar.visibility = View.VISIBLE
+            binding.ConsWithShape.visibility = View.GONE
+            binding.ConsAddExpense.visibility = View.GONE
+            binding.ConsBlur.visibility = View.GONE
+            binding.ConsSetting.visibility = View.GONE
+        }
         binding.RvListAndFolder.layoutManager = LinearLayoutManager(this@HomeActivity)
         binding.RvListAndFolder.adapter =
             ListFolderAddAdapter(this@HomeActivity, object : ListFolderAddAdapter.ListFolderClick {
@@ -66,28 +86,6 @@ class HomeActivity : AppCompatActivity() {
                     binding.ConsAddExpense.visibility = View.GONE
                     binding.ConsBlur.visibility = View.VISIBLE
 
-//                    Glide.with(this@HomeActivity).load(R.drawable.blur).apply(
-//                        bitmapTransform(
-//                            BlurTransformation(this@HomeActivity)
-//                        )
-//                    ).into(binding.IvBlur)
-//                    Blurry.with(this@HomeActivity)
-//                        .radius(25)
-//                        .sampling(2)
-//                        .async()
-//                        .animate(500)
-//                        .onto(findViewById<View>(R.id.ConsBlur) as ViewGroup)
-//                    Blurry.with(this@HomeActivity)
-//                        .radius(25)
-//                        .sampling(4)
-//                        .color(Color.argb(66, 255, 255, 0))
-//                        .capture(binding.IvBlur)
-//                        .getAsync {
-//                            binding.IvBlur.setImageDrawable(
-//                                BitmapDrawable(resources, it)
-//                            )
-//                        }
-
                     binding.ConsExpenseMembers.visibility = View.VISIBLE
                     binding.ConsMembers.visibility = View.GONE
                     binding.RvExpense.visibility = View.VISIBLE
@@ -98,7 +96,24 @@ class HomeActivity : AppCompatActivity() {
                     )
                     binding.TvMembers.setBackgroundResource(0)
                 }
+
+                override fun onShareClick() {
+                    startActivity(Intent(this@HomeActivity, ShareActivity::class.java))
+                }
             })
+        binding.FloatingFab.setOnFloatingActionsMenuUpdateListener(object :
+            FloatingActionMenu.OnFloatingActionsMenuUpdateListener {
+            override fun onMenuExpanded() {
+                binding.Blurrys.visibility = View.VISIBLE
+                binding.ConsMain.isClickable = false
+            }
+
+            override fun onMenuCollapsed() {
+                binding.Blurrys.visibility = View.GONE
+                binding.ConsMain.isClickable = true
+
+            }
+        })
         binding.TvExpense.setOnClickListener {
             binding.TvExpense.setBackgroundResource(R.drawable.bg_50)
             binding.TvExpense.background.setColorFilter(
@@ -161,6 +176,11 @@ class HomeActivity : AppCompatActivity() {
                     lp.height = WindowManager.LayoutParams.WRAP_CONTENT
                     lp.gravity = Gravity.CENTER
                     window.attributes = lp
+                    val IvCancel = dialog.findViewById<ImageView>(R.id.IvCancel)
+                    IvCancel.setOnClickListener {
+                        dialog.dismiss()
+                    }
+
                     dialog.show()
                 }
             })
@@ -175,6 +195,11 @@ class HomeActivity : AppCompatActivity() {
             LayoutParams.WRAP_CONTENT
         )
         popupWindow.isTouchable = true
+        val TvEditGroup = popupView.findViewById<TextView>(R.id.TvEditGroup)
+        TvEditGroup.setOnClickListener {
+            popupWindow.dismiss()
+            startActivity(Intent(this@HomeActivity, CreateGroupActivity::class.java))
+        }
         binding.IvMenu.setOnClickListener {
             popupWindow.showAsDropDown(binding.IvMenu, -50, 10)
         }
@@ -235,5 +260,25 @@ class HomeActivity : AppCompatActivity() {
         binding.ConsAddExpense.visibility = View.GONE
         binding.ConsBlur.visibility = View.GONE
         binding.ConsSetting.visibility = View.GONE
+    }
+
+    private fun createBitmapFromView(context: Context, view: View): Bitmap {
+        val displayMetrics = DisplayMetrics()
+        (context as Activity).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics)
+        view.setLayoutParams(LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
+
+        view.measure(displayMetrics.widthPixels, displayMetrics.heightPixels)
+        view.layout(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels)
+        view.buildDrawingCache()
+        val bitmap = Bitmap.createBitmap(
+            view.getMeasuredWidth(),
+            view.getMeasuredHeight(),
+            Bitmap.Config.ARGB_8888
+        )
+
+        val canvas = Canvas(bitmap)
+        view.draw(canvas)
+
+        return bitmap
     }
 }

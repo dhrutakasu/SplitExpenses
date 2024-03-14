@@ -27,6 +27,9 @@ class ImportMemberActivity : AppCompatActivity() {
         binding.LayoutTool.TvRightView.setOnClickListener {
             startActivity(Intent(this@ImportMemberActivity, HomeActivity::class.java))
         }
+        binding.LayoutTool.ConsLeft.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initActions() {

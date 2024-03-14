@@ -27,6 +27,9 @@ class CreateGroupActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
+        binding.LayoutTool.ConsLeft.setOnClickListener {
+            finish()
+        }
         binding.LayoutTool.TvRightView.setOnClickListener {
             startActivity(Intent(this@CreateGroupActivity, HomeActivity::class.java))
         }

@@ -56,7 +56,9 @@ dependencies {
     implementation("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 
     //todo blurview dependency
-    implementation("jp.wasabeef:blurry:4.0.1")
+//    implementation("jp.wasabeef:blurry:4.0.1")
+//    implementation("com.github.furkankaplan:fk-blur-view-android:1.0.1")
+//    implementation("io.github.hokofly:hoko-blur:1.5.3")
 
     //todo glide dependancy
     implementation("com.github.bumptech.glide:glide:4.16.0")

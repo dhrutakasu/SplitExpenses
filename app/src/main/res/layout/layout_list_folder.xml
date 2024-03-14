@@ -51,7 +51,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConsView"
         android:layout_width="0dp"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_height="@dimen/_40sdp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="@dimen/_5sdp"
         app:layout_constraintStart_toStartOf="parent"

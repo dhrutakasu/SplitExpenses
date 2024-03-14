@@ -9,6 +9,7 @@ import com.example.splitexpense.databinding.LayoutListFolderBinding
 class ListFolderAddAdapter(val context: Context, val list: ListFolderClick) :
     RecyclerView.Adapter<ListFolderAddAdapter.MyViewHolder>() {
     class MyViewHolder(ItemView: LayoutListFolderBinding) : RecyclerView.ViewHolder(ItemView.root) {
+        val IvShare=ItemView.IvShare
     }
 
     override fun onCreateViewHolder(
@@ -24,6 +25,9 @@ class ListFolderAddAdapter(val context: Context, val list: ListFolderClick) :
         holder.itemView.setOnClickListener {
             list.onFolderClick()
         }
+        holder.IvShare.setOnClickListener {
+            list.onShareClick()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -32,5 +36,6 @@ class ListFolderAddAdapter(val context: Context, val list: ListFolderClick) :
 
     interface ListFolderClick {
         fun onFolderClick()
+        fun onShareClick()
     }
 }

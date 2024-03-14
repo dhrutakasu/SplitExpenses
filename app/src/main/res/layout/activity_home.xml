@@ -9,44 +9,10 @@
     android:background="@color/main_color_light"
     tools:context=".ui.Activities.HomeActivity">
 
-    <FrameLayout
-        android:id="@+id/ConsBottomMenu"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_48sdp"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/bg_50"
-        android:backgroundTint="@color/white"
-        android:paddingHorizontal="@dimen/_8sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.ismaeldivita.chipnavigation.ChipNavigationBar
-            android:id="@+id/bottom_menu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cnb_addBottomInset="false"
-            app:cnb_addLeftInset="false"
-            app:cnb_addRightInset="false"
-            app:cnb_addTopInset="false"
-            app:cnb_backgroundColor="@color/main_color"
-            app:cnb_iconColor="@color/white"
-            app:cnb_iconSize="24dp"
-            app:cnb_iconTintMode="src_in"
-            app:cnb_menuResource="@menu/bottom_menu"
-            app:cnb_orientationMode="horizontal"
-            app:cnb_radius="@dimen/_20sdp"
-            app:cnb_textAppearance="@style/TextFamily"
-            app:cnb_textColor="@color/white"
-            app:cnb_unselectedColor="@color/main_color" />
-    </FrameLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConsToolBar"
         android:layout_width="0dp"
         android:layout_height="?actionBarSize"
-        android:background="@drawable/ic_shadow_bar"
         android:paddingHorizontal="@dimen/_10sdp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,24 +25,73 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_8sdp"
             android:src="@drawable/ic_bell"
-            android:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/IvProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/TvGroup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_8sdp"
             android:fontFamily="@font/main_bold"
             android:gravity="bottom"
             android:text="@string/my_dashboard"
-            android:textColor="@color/white"
+            android:textColor="@color/main_color"
             android:textSize="@dimen/_18sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/IvNotification"
+            app:layout_constraintStart_toEndOf="@+id/IvProfile"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConsHomeView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/ConsBottomMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ConsToolBar">
+
+        <TextView
+            android:id="@+id/TvListFolder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/main_bold"
+            android:text="@string/my_list_amp_folders"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RvListAndFolder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/TvListFolder"
+            tools:itemCount="10"
+            tools:listitem="@layout/layout_list_folder" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -189,9 +204,9 @@
             android:id="@+id/ConsExpenseMembers"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="gone"
             android:layout_marginHorizontal="@dimen/_12sdp"
-            android:paddingTop="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -405,9 +420,9 @@
                 android:layout_marginVertical="@dimen/_10sdp"
                 android:background="@drawable/bg_radius_light"
                 android:backgroundTint="@color/white"
+                android:paddingHorizontal="@dimen/_15sdp"
                 android:paddingVertical="@dimen/_15sdp"
-                app:layout_constraintTop_toBottomOf="@id/ConsGroupOptions"
-                android:paddingHorizontal="@dimen/_15sdp">
+                app:layout_constraintTop_toBottomOf="@id/ConsGroupOptions">
 
                 <TextView
                     android:id="@+id/TvThailand"
@@ -418,21 +433,21 @@
                     android:text="@string/thailand"
                     android:textColor="@color/main_color"
                     android:textSize="@dimen/_24sdp"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/TvDate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/main_bold"
                     android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/main_bold"
                     android:text="@string/date"
                     android:textColor="@color/light_text_color"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/TvOperationsCount"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/TvThailand" />
 
                 <TextView
@@ -442,11 +457,11 @@
                     android:fontFamily="@font/main_bold"
                     android:text="12"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="@dimen/_24sdp"
-                    app:layout_constraintStart_toEndOf="@+id/TvDate"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@id/TvThailand"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/TvDate"
                     app:layout_constraintTop_toTopOf="@id/TvThailand" />
 
                 <TextView
@@ -457,10 +472,10 @@
                     android:text="@string/operations"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/TvDate"
+                    app:layout_constraintBottom_toBottomOf="@id/TvDate"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/TvDate"
-                    app:layout_constraintBottom_toBottomOf="@id/TvDate" />
+                    app:layout_constraintStart_toEndOf="@+id/TvDate"
+                    app:layout_constraintTop_toTopOf="@id/TvDate" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -468,9 +483,9 @@
                 android:id="@+id/ConsGroupOptions"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_45sdp"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/TvCreateNewGroup"
@@ -513,28 +528,44 @@
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.5" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <TextView
-                android:id="@+id/IvShare"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:text="@string/share_this_app"
-                android:fontFamily="@font/main_bold"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:drawablePadding="@dimen/_12sdp"
-                android:gravity="center"
-                android:paddingHorizontal="@dimen/_6sdp"
-                android:paddingVertical="@dimen/_6sdp"
-                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_height="@dimen/_32sdp"
                 android:background="@drawable/bg_50"
                 android:backgroundTint="@color/white"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:drawableStart="@drawable/ic_share"
+                android:layout_marginBottom="@dimen/_8sdp"
+                app:layout_constraintStart_toStartOf="parent"
                 fab:layout_constraintBottom_toBottomOf="parent"
-                fab:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                fab:layout_constraintEnd_toEndOf="parent">
 
+                <ImageView
+                    android:id="@+id/IvShare"
+                    android:layout_width="@dimen/_28sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:src="@drawable/ic_share"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    fab:layout_constraintBottom_toBottomOf="parent"/>
 
+                <TextView
+                    android:id="@+id/TvShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:fontFamily="@font/main_bold"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:text="@string/share_this_app"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/IvShare"
+                    fab:layout_constraintBottom_toBottomOf="parent"
+                    fab:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -543,7 +574,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ConsBottomMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -552,69 +583,67 @@
             layout="@layout/layout_setting"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:id="@+id/LayoutSetting"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ConsHomeView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:paddingHorizontal="@dimen/_10sdp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/ConsBottomMenu"
+    <FrameLayout
+        android:id="@+id/ConsBottomMenu"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/bg_50"
+        android:backgroundTint="@color/white"
+        android:paddingHorizontal="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ConsToolBar">
+        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/TvListFolder"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:fontFamily="@font/main_bold"
-            android:text="@string/my_list_amp_folders"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RvListAndFolder"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/TvListFolder"
-            tools:itemCount="10"
-            tools:listitem="@layout/layout_list_folder" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.ismaeldivita.chipnavigation.ChipNavigationBar
+            android:id="@+id/bottom_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cnb_addBottomInset="false"
+            app:cnb_addLeftInset="false"
+            app:cnb_addRightInset="false"
+            app:cnb_addTopInset="false"
+            app:cnb_backgroundColor="@color/main_color"
+            app:cnb_iconColor="@color/white"
+            app:cnb_iconSize="24dp"
+            app:cnb_iconTintMode="src_in"
+            app:cnb_menuResource="@menu/bottom_menu"
+            app:cnb_orientationMode="horizontal"
+            app:cnb_radius="@dimen/_20sdp"
+            app:cnb_textAppearance="@style/TextFamily"
+            app:cnb_textColor="@color/white"
+            app:cnb_unselectedColor="@color/main_color" />
+    </FrameLayout>
 
     <RelativeLayout
         android:id="@+id/ConsBlur"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingBottom="@dimen/_52sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/IvBlur"
+        <com.example.splitexpense.blurkit.BlurryLayout
+            android:id="@+id/Blurrys"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.8"
-            android:visibility="invisible"
-            android:background="@color/white" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            app:blurColor="@color/black"
+            android:visibility="gone"
+            app:blurOpacity=".5"
+            app:blurRadius="18" />
 
         <com.example.splitexpense.Utils.FloatingActionMenu
             android:id="@+id/FloatingFab"
@@ -624,7 +653,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="@dimen/_12sdp"
-            app:backgroundTint="@color/main_color"
+            android:layout_marginBottom="@dimen/_55sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             fab:fab_addButtonColorNormal="@color/main_color"
@@ -637,10 +666,12 @@
             <com.example.splitexpense.Utils.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:padding="@dimen/_15sdp"
                 app:fab_icon="@drawable/ic_wallet"
-                app:fab_title="New Expense"
+                app:fab_title="New Expense \nA purchase made for the group"
                 fab:fab_colorNormal="@color/white"
-                fab:fab_colorPressed="@color/main_color_dark" />
+                fab:fab_colorPressed="@color/white" />
 
             <com.example.splitexpense.Utils.FloatingActionButton
                 android:id="@+id/button_remove"
@@ -648,7 +679,7 @@
                 android:layout_height="wrap_content"
                 app:fab_icon="@drawable/ic_pay"
                 fab:fab_colorNormal="@color/white"
-                fab:fab_colorPressed="@color/main_color_dark"
+                fab:fab_colorPressed="@color/white"
                 fab:fab_title="New Payment" />
 
             <com.example.splitexpense.Utils.FloatingActionButton
@@ -658,8 +689,9 @@
                 app:fab_icon="@drawable/ic_profile_logo"
                 app:fab_title="New Person"
                 fab:fab_colorNormal="@color/white"
-                fab:fab_colorPressed="@color/main_color_dark" />
+                fab:fab_colorPressed="@color/white" />
 
         </com.example.splitexpense.Utils.FloatingActionMenu>
     </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

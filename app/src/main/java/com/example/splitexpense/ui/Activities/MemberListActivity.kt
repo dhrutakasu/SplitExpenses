@@ -37,7 +37,9 @@ class MemberListActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-
+        binding.LayoutTool.ConsLeft.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initActions() {
@@ -66,13 +68,34 @@ class MemberListActivity : AppCompatActivity() {
                     val TvOther = dialog.findViewById<TextView>(R.id.TvOther)
                     val TvFixed = dialog.findViewById<TextView>(R.id.TvFixed)
                     TvNone.setOnClickListener {
-                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvFixed.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv12Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv1Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv2Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv3Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvOther.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvNone.background.setColorFilter(
+                            resources.getColor(R.color.main_color),
+                            PorterDuff.Mode.SRC_IN
+                        )
                         TvFixed.isSelected = false
                         Tv12Share.isSelected = false
                         Tv1Share.isSelected = false
@@ -86,13 +109,34 @@ class MemberListActivity : AppCompatActivity() {
                         }, 500)
                     }
                     Tv12Share.setOnClickListener {
-                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvNone.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvFixed.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv1Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv2Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv3Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvOther.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv12Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color),
+                            PorterDuff.Mode.SRC_IN
+                        )
                         TvNone.isSelected = false
                         TvFixed.isSelected = false
                         Tv1Share.isSelected = false
@@ -106,13 +150,34 @@ class MemberListActivity : AppCompatActivity() {
                         }, 500)
                     }
                     Tv1Share.setOnClickListener {
-                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvNone.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv12Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvFixed.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv2Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv3Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvOther.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv1Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color),
+                            PorterDuff.Mode.SRC_IN
+                        )
                         TvNone.isSelected = false
                         Tv12Share.isSelected = false
                         TvFixed.isSelected = false
@@ -126,13 +191,34 @@ class MemberListActivity : AppCompatActivity() {
                         }, 500)
                     }
                     Tv2Share.setOnClickListener {
-                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvNone.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv12Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv1Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvFixed.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv3Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvOther.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv2Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color),
+                            PorterDuff.Mode.SRC_IN
+                        )
                         TvNone.isSelected = false
                         Tv12Share.isSelected = false
                         Tv1Share.isSelected = false
@@ -146,13 +232,34 @@ class MemberListActivity : AppCompatActivity() {
                         }, 500)
                     }
                     Tv3Share.setOnClickListener {
-                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvNone.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv12Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv1Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv2Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvFixed.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvOther.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv3Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color),
+                            PorterDuff.Mode.SRC_IN
+                        )
                         TvNone.isSelected = false
                         Tv12Share.isSelected = false
                         Tv1Share.isSelected = false
@@ -166,13 +273,34 @@ class MemberListActivity : AppCompatActivity() {
                         }, 500)
                     }
                     TvOther.setOnClickListener {
-                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
-                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
+                        TvNone.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv12Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv1Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv2Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv3Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvOther.background.setColorFilter(
+                            resources.getColor(R.color.main_color),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvFixed.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
                         TvNone.isSelected = false
                         Tv12Share.isSelected = false
                         Tv1Share.isSelected = false
@@ -186,13 +314,34 @@ class MemberListActivity : AppCompatActivity() {
                         }, 500)
                     }
                     TvFixed.setOnClickListener {
-                        TvNone.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv12Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv1Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv2Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        Tv3Share.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvOther.background.setColorFilter(resources.getColor(R.color.main_color_tab), PorterDuff.Mode.SRC_IN)
-                        TvFixed.background.setColorFilter(resources.getColor(R.color.main_color), PorterDuff.Mode.SRC_IN)
+                        TvNone.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv12Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv1Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv2Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        Tv3Share.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvOther.background.setColorFilter(
+                            resources.getColor(R.color.main_color_tab),
+                            PorterDuff.Mode.SRC_IN
+                        )
+                        TvFixed.background.setColorFilter(
+                            resources.getColor(R.color.main_color),
+                            PorterDuff.Mode.SRC_IN
+                        )
                         TvNone.isSelected = false
                         Tv12Share.isSelected = false
                         Tv1Share.isSelected = false
