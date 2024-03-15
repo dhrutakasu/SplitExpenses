@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ConsAmountRupee"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/bg_radius_light"
     android:backgroundTint="@color/white"
     android:paddingHorizontal="@dimen/_18sdp"
@@ -12,8 +12,7 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    tools:ignore="MissingDefaultResource">
+    app:layout_constraintTop_toTopOf="parent">
 
     <EditText
         android:id="@+id/EdtComments"
@@ -150,7 +149,7 @@
         android:textColor="@color/black"
         android:textSize="@dimen/_14sdp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/RvAmountData"
+        app:layout_constraintBottom_toTopOf="@id/RvAmountDataList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/TvExpensePaidName" />
@@ -172,13 +171,13 @@
         app:layout_constraintBottom_toTopOf="@id/TvComments"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/RvAmountData" />
+        app:layout_constraintTop_toBottomOf="@id/RvAmountDataList" />
 
     <TextView
         android:id="@+id/TvComments"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:fontFamily="@font/main_medium"
         android:gravity="start"
         android:text="@string/comment"
@@ -194,7 +193,7 @@
         android:id="@+id/ConsTab"
         android:layout_width="0dp"
         android:layout_height="@dimen/_35sdp"
-        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:background="@drawable/bg_50"
         android:backgroundTint="@color/main_color_tab"
         app:layout_constraintEnd_toEndOf="parent"
@@ -250,9 +249,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RvAmountData"
+        android:id="@+id/RvAmountDataList"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.15"
         android:layout_marginTop="@dimen/_8sdp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -263,4 +263,5 @@
         tools:itemCount="10"
         tools:listitem="@layout/layout_amount_paid" />
 
+<!--    app:layout_constraintHeight_percent="0.2"-->
 </androidx.constraintlayout.widget.ConstraintLayout>

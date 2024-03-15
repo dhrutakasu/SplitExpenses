@@ -34,7 +34,7 @@
     <string name="_6_transactions_6000_spent">6 transactions  •  ₹6000 Spent</string>
     <string name="expense">Expense</string>
     <string name="_2000_00">₹2000.00</string>
-    <string name="paid_by_on_18_feb_for_vipul_bhai">Paid by %1$s on 18 feb for Vipul bhai</string>
+    <string name="paid_by_on_18_feb_for_vipul_bhai">Paid by %1$s on 18 feb for %2$s</string>
     <string name="total">Total</string>
     <string name="_2000_give">₹ 2000\nGive</string>
     <string name="_6000_nbalance">₹ 6000\nBalance</string>

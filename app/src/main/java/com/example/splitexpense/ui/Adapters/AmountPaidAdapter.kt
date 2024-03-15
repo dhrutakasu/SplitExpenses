@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.splitexpense.databinding.LayoutAmountPaidBinding
+import com.example.splitexpense.databinding.LayoutAmountPaidShareBinding
 import com.example.splitexpense.databinding.LayoutListFolderBinding
 
 class AmountPaidAdapter(context: Context) : RecyclerView.Adapter<AmountPaidAdapter.MyViewHolder>() {

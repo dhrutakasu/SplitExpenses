@@ -42,7 +42,7 @@
         android:layout_marginHorizontal="@dimen/_5sdp"
         android:fontFamily="@font/main_bold"
         android:gravity="bottom"
-        android:text="@string/group_name"
+        android:text="@string/person_name"
         android:textColor="@color/main_color"
         android:textSize="@dimen/_14sdp"
         app:layout_constraintEnd_toStartOf="@+id/IvMenu"

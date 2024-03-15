@@ -25,9 +25,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.splitexpense.R
 import com.example.splitexpense.Utils.FloatingActionMenu
 import com.example.splitexpense.databinding.ActivityHomeBinding
+import com.example.splitexpense.ui.Adapters.AmountPaidAdapter
 import com.example.splitexpense.ui.Adapters.ExpenseAdapter
 import com.example.splitexpense.ui.Adapters.ListFolderAddAdapter
 import com.example.splitexpense.ui.Adapters.PersonDataAdapter
@@ -147,6 +149,12 @@ class HomeActivity : AppCompatActivity() {
         binding.LayoutAmount.SpinnerRupee.adapter = adapter
         binding.RvPersonData.layoutManager = LinearLayoutManager(this@HomeActivity)
         binding.RvPersonData.adapter = PersonDataAdapter(this@HomeActivity)
+
+
+        binding.LayoutAmount.RvAmountDataList.layoutManager = LinearLayoutManager(this@HomeActivity)
+        binding.LayoutAmount.RvAmountDataList.adapter = AmountPaidAdapter(this@HomeActivity)
+
+
         binding.RvExpense.layoutManager = LinearLayoutManager(this@HomeActivity)
         binding.RvExpense.adapter =
             ExpenseAdapter(this@HomeActivity, object : ExpenseAdapter.ExpenseClick {
@@ -161,6 +169,9 @@ class HomeActivity : AppCompatActivity() {
                     binding.ConsWithShape.visibility = View.VISIBLE
                     binding.ConsBlur.visibility = View.GONE
                     binding.ConsSetting.visibility = View.GONE
+
+                    binding.LayoutAmount.RvAmountDataList.layoutManager = LinearLayoutManager(this@HomeActivity,RecyclerView.HORIZONTAL,false)
+                    binding.LayoutAmount.RvAmountDataList.adapter = AmountPaidAdapter(this@HomeActivity)
                 }
 
                 override fun onMenuClick() {

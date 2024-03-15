@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:layout_marginVertical="@dimen/_2sdp"
+    android:layout_marginHorizontal="@dimen/_5sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConsName"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_radius_light"
+        android:backgroundTint="@color/main_color_tab"
+        android:paddingVertical="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/IvLineCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_line_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/TvPersonName" />
+
+        <TextView
+            android:id="@+id/TvPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:text="@string/dummy"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TvExpensePaidAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:backgroundTint="@color/main_color_tab"
+            android:drawableStart="@drawable/ic_profile_logo"
+            android:drawablePadding="@dimen/_10sdp"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:text="@string/dummy_rupee"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/IvLineCenter" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/TvShare"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:background="@drawable/bg_radius_light"
+        android:backgroundTint="@color/main_color_tab"
+        android:drawablePadding="@dimen/_3sdp"
+        android:fontFamily="@font/main_bold"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:text="1/2"
+        android:drawableStart="@drawable/ic_round_add"
+        android:drawableEnd="@drawable/ic_round_remove"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/TvRupee"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ConsName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TvRupee"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_42sdp"
+        android:background="@drawable/bg_radius_light"
+        android:backgroundTint="@color/main_color_tab"
+        android:fontFamily="@font/main_bold"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:text="₹ 2000"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/TvShare"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

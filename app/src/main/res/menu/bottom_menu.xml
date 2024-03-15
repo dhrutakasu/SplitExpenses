@@ -13,7 +13,7 @@
     <item
         android:id="@+id/MenuAddMember"
         android:icon="@drawable/ic_add_file"
-        android:title="Add Member"
+        android:title="Create Group"
         app:cnb_backgroundColor="@color/main_color"
         app:cnb_iconTintMode="src_in"
         app:cnb_textColor="@color/white"
