@@ -238,7 +238,7 @@
             android:layout_margin="@dimen/_5sdp"
             android:fontFamily="@font/main_bold"
             android:gravity="center"
-            android:text="@string/transfer"
+            android:text="@string/settled"
             android:textColor="@color/main_color"
             android:textSize="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -38,6 +38,23 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/TvRightView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_8sdp"
+            android:background="@drawable/bg_50"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/main_bold"
+            android:gravity="center"
+            android:text="@string/save"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/_14sdp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.28" />
+        <TextView
             android:id="@+id/TvGroupName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -48,7 +65,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_18sdp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/TvRightView"
             app:layout_constraintStart_toEndOf="@id/IvBackHome"
             app:layout_constraintTop_toTopOf="parent" />
 

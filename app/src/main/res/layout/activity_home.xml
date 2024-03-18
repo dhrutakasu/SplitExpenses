@@ -666,9 +666,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:padding="@dimen/_15sdp"
                 app:fab_icon="@drawable/ic_wallet"
-                app:fab_title="New Expense \nA purchase made for the group"
+                app:fab_title="New Expense"
                 fab:fab_colorNormal="@color/white"
                 fab:fab_colorPressed="@color/white" />
 
@@ -679,14 +678,14 @@
                 app:fab_icon="@drawable/ic_pay"
                 fab:fab_colorNormal="@color/white"
                 fab:fab_colorPressed="@color/white"
-                fab:fab_title="New Payment" />
+                fab:fab_title="New Income" />
 
             <com.example.splitexpense.Utils.FloatingActionButton
                 android:id="@+id/button_gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_icon="@drawable/ic_profile_logo"
-                app:fab_title="New Person"
+                app:fab_title="New Settled"
                 fab:fab_colorNormal="@color/white"
                 fab:fab_colorPressed="@color/white" />
 

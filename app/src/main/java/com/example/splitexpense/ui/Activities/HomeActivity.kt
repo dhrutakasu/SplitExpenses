@@ -220,7 +220,7 @@ class HomeActivity : AppCompatActivity() {
             false
         }
         binding.LayoutAmount.TvEditSplit.setOnClickListener {
-            startActivity(Intent(this@HomeActivity, MemberListActivity::class.java))
+            startActivity(Intent(this@HomeActivity, EditSplitActivity::class.java))
         }
 
 
