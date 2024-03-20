@@ -5,7 +5,6 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.PorterDuff
@@ -23,20 +22,27 @@ import android.widget.ImageView
 import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.splitexpense.Constants.Const
 import com.example.splitexpense.R
-import com.example.splitexpense.Utils.FloatingActionMenu
+import com.example.splitexpense.Utils.LoadProgressDialog
+import com.example.splitexpense.Utils.utilsJava.FloatingActionMenu
 import com.example.splitexpense.databinding.ActivityHomeBinding
+import com.example.splitexpense.retrofit.RetrofitConfig
 import com.example.splitexpense.ui.Adapters.AmountPaidAdapter
 import com.example.splitexpense.ui.Adapters.ExpenseAdapter
 import com.example.splitexpense.ui.Adapters.ListFolderAddAdapter
 import com.example.splitexpense.ui.Adapters.PersonDataAdapter
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class HomeActivity : AppCompatActivity() {
+    private lateinit var context: HomeActivity
     private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +56,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-
+        context=this@HomeActivity
     }
 
     private fun initListeners() {
@@ -271,25 +277,47 @@ class HomeActivity : AppCompatActivity() {
         binding.ConsAddExpense.visibility = View.GONE
         binding.ConsBlur.visibility = View.GONE
         binding.ConsSetting.visibility = View.GONE
+
+        initApis()
     }
 
-    private fun createBitmapFromView(context: Context, view: View): Bitmap {
-        val displayMetrics = DisplayMetrics()
-        (context as Activity).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics)
-        view.setLayoutParams(LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
+    private fun initApis() {
+        if (Const.isNetwork(applicationContext)) {
+            LoadProgressDialog.showDialog(context)
+            val call = RetrofitConfig.getRequestInterface().forgotPassword(
+                    ""
+                )
 
-        view.measure(displayMetrics.widthPixels, displayMetrics.heightPixels)
-        view.layout(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels)
-        view.buildDrawingCache()
-        val bitmap = Bitmap.createBitmap(
-            view.getMeasuredWidth(),
-            view.getMeasuredHeight(),
-            Bitmap.Config.ARGB_8888
-        )
+            call.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
+                    when (response.code()) {
+                        200 -> {
 
-        val canvas = Canvas(bitmap)
-        view.draw(canvas)
+                        }
 
-        return bitmap
+                        401 -> {
+
+                        }
+
+                        else -> {
+                            LoadProgressDialog.hideDialog(context)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    LoadProgressDialog.hideDialog(context)
+                }
+            })
+        } else {
+            Const.showNoInternetDialog(context, object : Const.Companion.TryAgainInternet {
+                override fun InternetAgainClick() {
+                   initApis()
+                }
+            })
+        }
     }
 }

@@ -96,5 +96,8 @@
     <string name="by_share">By Share</string>
     <string name="fix_amount">Fix Amount</string>
     <string name="settled">Settled</string>
+    <string name="please_check_your_internet_connection_and_try_again">Please check your internet connection\nand try again</string>
+    <string name="try_again">Try Again</string>
+    <string name="no_internet_connection">No internet connection</string>
 
 </resources>

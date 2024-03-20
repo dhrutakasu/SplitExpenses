@@ -644,7 +644,7 @@
             app:blurOpacity=".5"
             app:blurRadius="18" />
 
-        <com.example.splitexpense.Utils.FloatingActionMenu
+        <com.example.splitexpense.Utils.utilsJava.FloatingActionMenu
             android:id="@+id/FloatingFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -662,7 +662,7 @@
             fab:fab_expandDirection="up"
             fab:fab_labelStyle="@style/fab_style">
 
-            <com.example.splitexpense.Utils.FloatingActionButton
+            <com.example.splitexpense.Utils.utilsJava.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -671,7 +671,7 @@
                 fab:fab_colorNormal="@color/white"
                 fab:fab_colorPressed="@color/white" />
 
-            <com.example.splitexpense.Utils.FloatingActionButton
+            <com.example.splitexpense.Utils.utilsJava.FloatingActionButton
                 android:id="@+id/button_remove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -680,7 +680,7 @@
                 fab:fab_colorPressed="@color/white"
                 fab:fab_title="New Income" />
 
-            <com.example.splitexpense.Utils.FloatingActionButton
+            <com.example.splitexpense.Utils.utilsJava.FloatingActionButton
                 android:id="@+id/button_gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -689,7 +689,7 @@
                 fab:fab_colorNormal="@color/white"
                 fab:fab_colorPressed="@color/white" />
 
-        </com.example.splitexpense.Utils.FloatingActionMenu>
+        </com.example.splitexpense.Utils.utilsJava.FloatingActionMenu>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

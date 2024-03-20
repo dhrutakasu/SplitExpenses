@@ -55,14 +55,12 @@ dependencies {
     //todo bottom navigation dependency
     implementation("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 
-    //todo blurview dependency
-//    implementation("jp.wasabeef:blurry:4.0.1")
-//    implementation("com.github.furkankaplan:fk-blur-view-android:1.0.1")
-//    implementation("io.github.hokofly:hoko-blur:1.5.3")
-
     //todo glide dependancy
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
-    //todo floating dependency
-//    implementation("com.getbase:floatingactionbutton:1.10.1")
+    //todo Retrofit2 dependency
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.6.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 }

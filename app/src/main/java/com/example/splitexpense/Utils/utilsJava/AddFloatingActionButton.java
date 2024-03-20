@@ -1,4 +1,4 @@
-package com.example.splitexpense.Utils;
+package com.example.splitexpense.Utils.utilsJava;
 
 import android.content.Context;
 import android.content.res.TypedArray;

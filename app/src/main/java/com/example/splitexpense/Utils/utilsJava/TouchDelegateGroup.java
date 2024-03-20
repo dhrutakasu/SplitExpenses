@@ -1,4 +1,4 @@
-package com.example.splitexpense.Utils;
+package com.example.splitexpense.Utils.utilsJava;
 
 import android.graphics.Rect;
 import android.view.MotionEvent;

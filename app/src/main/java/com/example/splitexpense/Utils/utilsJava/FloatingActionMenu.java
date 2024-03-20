@@ -1,4 +1,4 @@
-package com.example.splitexpense.Utils;
+package com.example.splitexpense.Utils.utilsJava;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -7,16 +7,11 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
 import android.view.Gravity;
@@ -69,7 +64,7 @@ public class FloatingActionMenu extends ViewGroup {
     private int mLabelsPosition;
     private int mButtonsCount;
 
-    private com.example.splitexpense.Utils.TouchDelegateGroup mTouchDelegateGroup;
+    private TouchDelegateGroup mTouchDelegateGroup;
 
     private OnFloatingActionsMenuUpdateListener mListener;
 
@@ -154,7 +149,7 @@ public class FloatingActionMenu extends ViewGroup {
     }
 
     private void createAddButton(Context context) {
-        mAddButton = new com.example.splitexpense.Utils.AddFloatingActionButton(context) {
+        mAddButton = new AddFloatingActionButton(context) {
             @Override
             void updateBackground() {
                 mPlusColor = mAddButtonPlusColor;
