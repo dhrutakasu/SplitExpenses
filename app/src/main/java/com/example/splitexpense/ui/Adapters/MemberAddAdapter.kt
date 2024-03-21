@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.splitexpense.databinding.LayoutAddMembersBinding
 
-class MemberAddAdapter(context: Context) : RecyclerView.Adapter<MemberAddAdapter.MyViewHolder>() {
-    class MyViewHolder(ItemView: LayoutAddMembersBinding) : RecyclerView.ViewHolder(ItemView.root) {
+class MemberAddAdapter(val context: Context, val listOfMembers: MutableList<String>) :
+    RecyclerView.Adapter<MemberAddAdapter.MyViewHolder>() {
+    class MyViewHolder(binding: LayoutAddMembersBinding) : RecyclerView.ViewHolder(binding.root) {
+        val TvMembersGroupName = binding.TvMembersGroupName
     }
 
     override fun onCreateViewHolder(
@@ -20,10 +22,10 @@ class MemberAddAdapter(context: Context) : RecyclerView.Adapter<MemberAddAdapter
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.TvMembersGroupName.text = listOfMembers[position].toString()
     }
 
     override fun getItemCount(): Int {
-        return 10
+        return listOfMembers.size
     }
-
 }

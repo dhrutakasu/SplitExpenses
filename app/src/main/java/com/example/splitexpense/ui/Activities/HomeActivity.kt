@@ -25,6 +25,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.splitexpense.Constants.Const
+import com.example.splitexpense.Model.DataItem
+import com.example.splitexpense.Model.ListOfGroupData
 import com.example.splitexpense.R
 import com.example.splitexpense.Utils.LoadProgressDialog
 import com.example.splitexpense.Utils.utilsJava.FloatingActionMenu
@@ -34,7 +36,11 @@ import com.example.splitexpense.ui.Adapters.AmountPaidAdapter
 import com.example.splitexpense.ui.Adapters.ExpenseAdapter
 import com.example.splitexpense.ui.Adapters.ListFolderAddAdapter
 import com.example.splitexpense.ui.Adapters.PersonDataAdapter
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -44,6 +50,7 @@ import retrofit2.Response
 class HomeActivity : AppCompatActivity() {
     private lateinit var context: HomeActivity
     private lateinit var binding: ActivityHomeBinding
+    private var listOfFolder: ArrayList<DataItem> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +63,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        context=this@HomeActivity
+        context = this@HomeActivity
     }
 
     private fun initListeners() {
@@ -80,35 +87,7 @@ class HomeActivity : AppCompatActivity() {
             binding.ConsBlur.visibility = View.GONE
             binding.ConsSetting.visibility = View.GONE
         }
-        binding.RvListAndFolder.layoutManager = LinearLayoutManager(this@HomeActivity)
-        binding.RvListAndFolder.adapter =
-            ListFolderAddAdapter(this@HomeActivity, object : ListFolderAddAdapter.ListFolderClick {
-                override fun onFolderClick() {
-                    binding.ConsHomeView.visibility = View.GONE
-                    binding.ConsToolBar.visibility = View.GONE
-                    binding.ConsWithShape.visibility = View.VISIBLE
-                    binding.ConsExpenseMembers.visibility = View.GONE
-                    binding.ConsMembers.visibility = View.GONE
-                    binding.RvExpense.visibility = View.VISIBLE
-                    binding.ScrollAmountRupee.visibility = View.GONE
-                    binding.ConsAddExpense.visibility = View.GONE
-                    binding.ConsBlur.visibility = View.VISIBLE
 
-                    binding.ConsExpenseMembers.visibility = View.VISIBLE
-                    binding.ConsMembers.visibility = View.GONE
-                    binding.RvExpense.visibility = View.VISIBLE
-                    binding.TvExpense.setBackgroundResource(R.drawable.bg_50)
-                    binding.TvExpense.background.setColorFilter(
-                        resources.getColor(R.color.white),
-                        PorterDuff.Mode.SRC_ATOP
-                    )
-                    binding.TvMembers.setBackgroundResource(0)
-                }
-
-                override fun onShareClick() {
-                    startActivity(Intent(this@HomeActivity, ShareActivity::class.java))
-                }
-            })
         binding.FloatingFab.setOnFloatingActionsMenuUpdateListener(object :
             FloatingActionMenu.OnFloatingActionsMenuUpdateListener {
             override fun onMenuExpanded() {
@@ -176,8 +155,10 @@ class HomeActivity : AppCompatActivity() {
                     binding.ConsBlur.visibility = View.GONE
                     binding.ConsSetting.visibility = View.GONE
 
-                    binding.LayoutAmount.RvAmountDataList.layoutManager = LinearLayoutManager(this@HomeActivity,RecyclerView.HORIZONTAL,false)
-                    binding.LayoutAmount.RvAmountDataList.adapter = AmountPaidAdapter(this@HomeActivity)
+                    binding.LayoutAmount.RvAmountDataList.layoutManager =
+                        LinearLayoutManager(this@HomeActivity, RecyclerView.HORIZONTAL, false)
+                    binding.LayoutAmount.RvAmountDataList.adapter =
+                        AmountPaidAdapter(this@HomeActivity)
                 }
 
                 override fun onMenuClick() {
@@ -284,38 +265,86 @@ class HomeActivity : AppCompatActivity() {
     private fun initApis() {
         if (Const.isNetwork(applicationContext)) {
             LoadProgressDialog.showDialog(context)
-            val call = RetrofitConfig.getRequestInterface().forgotPassword(
-                    ""
-                )
+            val call = RetrofitConfig.getRequestInterface().GetGroupUserName(
+                "kkb"
+            )
 
             call.enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(
                     call: Call<ResponseBody>,
                     response: Response<ResponseBody>
                 ) {
+                    println("========== body ${response.body()}")
                     when (response.code()) {
                         200 -> {
+                            val listOfGroupData =
+                                Gson().fromJson(
+                                    response.body()!!.string(),
+                                    ListOfGroupData::class.java
+                                )
+                            println("========== issuccess ${listOfGroupData.issuccess}")
+                            if (listOfGroupData.issuccess!!.toString().equals("true")) {
+                                listOfFolder.addAll(listOfGroupData.data!! as ArrayList<DataItem>)
 
-                        }
+                                LoadProgressDialog.hideDialog(context)
+                                println("========== 200 ${listOfFolder[0]!!.name}")
+                                binding.RvListAndFolder.layoutManager =
+                                    LinearLayoutManager(this@HomeActivity)
+                                binding.RvListAndFolder.adapter =
+                                    ListFolderAddAdapter(
+                                        this@HomeActivity,
+                                        listOfFolder,
+                                        object : ListFolderAddAdapter.ListFolderClick {
+                                            override fun onFolderClick() {
+                                                binding.ConsHomeView.visibility = View.GONE
+                                                binding.ConsToolBar.visibility = View.GONE
+                                                binding.ConsWithShape.visibility = View.VISIBLE
+                                                binding.ConsExpenseMembers.visibility = View.GONE
+                                                binding.ConsMembers.visibility = View.GONE
+                                                binding.RvExpense.visibility = View.VISIBLE
+                                                binding.ScrollAmountRupee.visibility = View.GONE
+                                                binding.ConsAddExpense.visibility = View.GONE
+                                                binding.ConsBlur.visibility = View.VISIBLE
 
-                        401 -> {
+                                                binding.ConsExpenseMembers.visibility = View.VISIBLE
+                                                binding.ConsMembers.visibility = View.GONE
+                                                binding.RvExpense.visibility = View.VISIBLE
+                                                binding.TvExpense.setBackgroundResource(R.drawable.bg_50)
+                                                binding.TvExpense.background.setColorFilter(
+                                                    resources.getColor(R.color.white),
+                                                    PorterDuff.Mode.SRC_ATOP
+                                                )
+                                                binding.TvMembers.setBackgroundResource(0)
+                                            }
 
+                                            override fun onShareClick() {
+                                                startActivity(
+                                                    Intent(
+                                                        this@HomeActivity,
+                                                        ShareActivity::class.java
+                                                    )
+                                                )
+                                            }
+                                        })
+                            }
                         }
 
                         else -> {
+                            println("========== response.code() ${response.code()}")
                             LoadProgressDialog.hideDialog(context)
                         }
                     }
                 }
 
-                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                override fun onFailure(call: retrofit2.Call<ResponseBody>, t: Throwable) {
+                    println("========== onFailure ${t.message}")
                     LoadProgressDialog.hideDialog(context)
                 }
             })
         } else {
             Const.showNoInternetDialog(context, object : Const.Companion.TryAgainInternet {
                 override fun InternetAgainClick() {
-                   initApis()
+                    initApis()
                 }
             })
         }
