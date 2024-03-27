@@ -20,7 +20,7 @@ interface RequestInterface {
     @POST("groups")
     fun CreateGroup(@Body jsonobject: RequestBody): Call<ResponseBody>
 
-    @GET("groups/list/{username}")
+        @GET("groups/list/{username}")
 //    fun GetGroupUserName(): Call<ResponseBody>
     fun GetGroupUserName(@Path("username") username: String): Call<ResponseBody>
 

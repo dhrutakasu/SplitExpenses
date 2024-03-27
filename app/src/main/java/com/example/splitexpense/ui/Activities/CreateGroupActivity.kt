@@ -17,6 +17,7 @@ import com.example.splitexpense.databinding.ActivityCreateGroupBinding
 import com.example.splitexpense.retrofit.RetrofitConfig
 import com.example.splitexpense.ui.Adapters.MemberAddAdapter
 import com.google.gson.Gson
+import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -118,7 +119,11 @@ class CreateGroupActivity : AppCompatActivity() {
                val jsonObject = JsonObject()
                jsonObject.addProperty("name", binding.EdtGroupName.text.toString().trim())
                jsonObject.addProperty("currency", binding.EdtCurrency.text.toString().trim())
-               jsonObject.addProperty("members", listOfMembers.toString())
+               val membersArray = JsonArray()
+               listOfMembers.forEach { member ->
+                   membersArray.add(member)
+               }
+               jsonObject.add("members", membersArray)
                jsonObject.addProperty("userId", "kds detail")
                println("------ JSON : $jsonObject")
                val mediaType = "application/json".toMediaType()
